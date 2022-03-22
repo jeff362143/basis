@@ -1,0 +1,51 @@
+let http = require('http');
+let fs = require('fs');
+let url = require('url');
+
+// 定义MT对象
+var MT = {
+	'html': 'text/html',
+	'htm': 'text/html',
+	'css': 'text/css',
+	'txt': 'text/plain',
+	'js': 'text/javascript',
+	'png': 'image/png',
+	'jpg': 'image/jpg',
+	'jpeg': 'image/jpeg'
+}
+
+http.createServer(function(req, res) {
+    // data事件可以用于接收post请求体🀄️的数据
+    req.on('data', function(data) {
+        console.log(data.toString());
+    })
+
+
+    let url_obj = url.parse(req.url);
+    let pathName = url_obj.pathname.slice(1);
+    let extName = pathName.split(".").pop();
+    // pop方法是作用于本体的，但是pathName.split("")并不会影响到pathName的值，因此pathName不变
+    // console.log(url_obj.pathname,pathName, extName);
+    let method = req.method.toUpperCase();
+
+    //  处理login请求
+    if (url_obj.pathname == '/login' && method == "POST") {
+        res.writeHead(201, {'content-type': 'text/plain;charset=utf-8'});
+        res.end('返回行需要content-type说明内容的格式');
+        return
+        // return会停止该次回调函数的继续执行
+    }
+
+    fs.readFile(pathName, function(err, data) {
+        if (err) {
+            res.writeHead(404, {'content-type': 'text/plain;charset=utf-8'});
+            res.end('文件不存在');
+            return
+        }
+        res.writeHead(201, {'content-type': `${MT[extName]};charset=utf-8`});
+        res.end(data);
+    })
+    
+}).listen(3000);
+
+

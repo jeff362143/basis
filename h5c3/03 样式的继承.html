@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <p>就近原则</p>
+    </div>
+    <style>
+        p {
+            color: black;
+        }
+        /* 通配选择器权重比标签选择器低 */
+        * {
+            color: skyblue;
+        }
+        /* 尽管#box的color使用了！important，但是p元素的color只是继承属性，权重值是最低的（比通配符点还要低） */
+        /* 继承的样式权重最低 */
+        #box {
+            color: red !important;
+        }
+
+    </style>
+</body>
+</html>

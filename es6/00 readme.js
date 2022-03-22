@@ -1,0 +1,1 @@
+// node中直接打印this为{}    web中打印是Window对象
