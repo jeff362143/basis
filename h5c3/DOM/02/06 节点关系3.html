@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <div>
+        </div>
+    </ul>
+<script>
+    let div = document.getElementsByTagName('div')[0];
+    var ul = document.getElementsByTagName('ul')[0];
+    let li = document.createElement('li');
+    console.log(li);
+    // ul.replaceChild(li, div);
+    // 子元素替换
+
+    div.replaceWith(li);
+    // 元素替换，且不需要父元素。更灵活
+    
+</script>
+</body>
+</html>
+

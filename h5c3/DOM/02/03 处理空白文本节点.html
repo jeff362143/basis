@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <div class="pen">bi</div>
+        <div class="photo">pian</div>
+        <div id="personal-computer">pc</div>
+    </div>
+<script>
+    /**
+     * 空白文本节点的nodeValue存在空白，使用reqExp处理它
+     * 
+    */
+    let box = document.getElementById('box');
+    // // 箭头函数赋值给getNode函数
+    // let getNode = node => {
+    //     let Node = [];
+    //     let reqexp = /^\s+$/;
+        
+    //     for (let i = 0; i < node.childNodes.length; i ++) {
+    //         if(reqexp.test(node.childNodes[i].nodeValue)) {
+    //             continue;
+    //         }
+    //         Node.push(node.childNodes[i]);
+    //     }
+    //     return Node;
+    // }
+    // let childNode = getNode(box);
+    // console.log(childNode);
+
+
+    let getNode = node => {
+        let newNode = [];
+        let regExp = /\s+/;
+        for (let i = 0; i < node.childNodes.length; i ++) {
+            if(regExp.test(node.childNodes[i].nodeValue)) {
+                continue;
+            } 
+            newNode.push(node.childNodes[i]);
+        }
+        return Node;
+    }
+    let childNode = getNode(box);
+</script>
+</body>
+</html>

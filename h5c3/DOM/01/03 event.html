@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<style>
+    div {
+        width: 100px;
+        height: 30px;
+        background-color: skyblue;
+        border-radius: 20px;
+        text-align: center;
+        line-height: 30px;
+        margin: 15px 0;
+    }
+</style>
+    <div id="button1">button1</div>
+    <div id="button2">button2</div>
+    <div id="button3">button3</div>
+    <div id="button4">button4</div>
+    <div id="button5">button5</div>
+    <input type="text" id="input1">
+<script>
+    let button1 = document.getElementById("button1");
+    button1.onclick = function() {
+        console.log(button1.innerText);
+    }
+    // onclick
+
+    let flag = true;
+    let button2 = document.getElementById("button2");
+    button2.ondblclick = function() {
+        flag ? (function(){button2.style.width = '300px'; flag = false})() : (function() {button2.style.width = "100px";flag = true})() ;
+    }
+    // ondblclick
+
+    let button3 = document.getElementById('button3');
+    button3.onmouseenter = function() {
+        button3.style.backgroundColor = 'yellow';
+    }
+    // onmouseenter
+    button3.onmouseleave = function() {
+        button3.style.backgroundColor = 'skyblue';
+    }
+    // onmouseleave
+
+    let button4 = document.getElementById('button4');
+    button4.onmousedown = function() {
+        console.log("鼠标按下了");
+    }
+    
+    let button5 = document.getElementById('button5');
+    button5.onmouseup = function() {
+        console.log("鼠标抬起了");
+    }
+
+    let input1 = document.getElementById('input1');
+    input1.onfocus = function() {
+        console.log("鼠标进入输入框焦点");
+    }
+    // onfocus
+    input1.onblur = function() {
+        console.log("鼠标离开了输入框焦点");
+    }
+</script>
+</body>
+</html>
+
+

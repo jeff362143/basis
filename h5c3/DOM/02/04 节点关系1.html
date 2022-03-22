@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+<script>
+    /**
+     * 记忆重点
+     * childNodes指的是包括注释、文本全部节点
+     * firstChild和lastChild指的是第一个子节点和最后一个子节点
+     * 
+     * chidren指的是全部子元素节点
+     * firstElementChild和lastElementChild用于元素节点
+     * 
+     * parentNode指的是父节点
+     * 
+     * previousSibling和nextSibling用于全部兄弟姐妹节点
+     * previousElementSibling和nextElementSibling用于元素兄弟姐妹节点
+    */
+
+    /**
+     * 不少偏记忆性的东西
+     * 普通子节点和元素子节点
+     * 
+     * nextElementsibling和nextSibling
+     * 普通节点和元素节点常用方法
+    */
+    let ul = document.getElementsByTagName('ul')[0];
+    console.log(ul.childNodes);
+    
+    console.log(ul.firstChild, ul.lastChild);
+    
+    console.log(ul.children);
+    // children打印所有的元素节点（指的是标签元素？）
+    console.log(ul.firstElementChild, ul.lastElementChild);
+    console.log(ul.lastElementChild.parentNode);
+    // li3的父元素节点
+    
+    console.log("****");
+    console.log(ul.lastElementChild.previousSibling);
+    // 上一个兄弟姐妹节点
+    console.log(ul.lastElementChild.nextSibling);
+    // 下一个兄弟姐妹节点
+
+    console.log(ul.lastElementChild.previousElementSibling);
+    // 上一个元素节点
+    console.log(ul.firstElementChild.nextElementSibling);
+    // 下一个元素节点
+
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <div id="inner">
+            <img src="./images/baidu/1.jpg" alt="">
+            <img src="./images/baidu/2.jpg" alt="">
+            <img src="./images/baidu/3.jpg" alt="">
+            <img src="./images/baidu/4.jpg" alt="">
+            <img src="./images/baidu/5.jpg" alt="">
+            <!-- 图片原始尺寸过大，设置width控制大小 -->
+
+            <!-- img为行内元素，标签书写存在空格，因此在网页中显示时图片间存在小空格 -->
+            <button id="switchBtn">切换皮肤</button>
+        </div>
+    </div>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: url('./images/baidu/1.jpg') no-repeat top center;
+        }
+        #inner {
+            width: 1080px;
+            margin: 0 auto;
+        }
+        #inner img {
+            width: 200px;
+        }
+    </style>
+    <script>
+        let switchBtn = document.getElementById("switchBtn");
+        let index = 1;
+        switchBtn.onclick = function() {
+            index % 5 == 0 ? index = 1: index ++;
+            document.body.style.background = `url('./images/baidu/${index}.jpg') no-repeat top center`
+        }
+    </script>
+</body>
+</html>

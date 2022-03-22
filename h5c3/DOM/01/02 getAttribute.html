@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="img" src="" style="border: 1px solid red;" alt="dd" width="200px" foxconn-time="2021-11-06">
+    <script>
+        let img = document.getElementById('img');
+        let time = img.getAttribute('foxconn-time');
+        console.log(time);
+
+        img.setAttribute("desc", "front-end");
+        // 自定义属性和属性值
+    
+        // 点语法和getAttribute方法的区别：
+        // 点语法获取class属性需要     obj.style.className
+       
+        // setAttribute设置的是标签上的属性，即无法设置style样式（width，height这些就是css样式）
+        // 而.style语法可以设置嵌入样式
+
+        img.setAttribute("foxconn-time2", "2021-12-02");
+
+        // setAttribute用于修改属性值
+    
+    </script>
+</body>
+</html>

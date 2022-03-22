@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">mt按钮</button>
+    <h1 id="desc"></h1>
+    <script>
+        let index = 0;
+        let btn = document.getElementById('btn');
+        let desc = document.getElementById('desc');
+        btn.onclick = function() {
+            desc.innerText = `已为你抢mt${++ index}次`;
+        }
+        setInterval(() => {
+            btn.click();
+        }, 300);
+    </script>
+</body>
+<style>
+    body {
+        background-color: rgb(97, 192, 144);
+        font-family: "正楷";
+    }
+</style>
+</html>
+
+
+
+

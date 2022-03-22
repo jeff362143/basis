@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        babydoge doggggg
+        <!-- 注释节点 -->
+        <p></p>
+    </div>
+<script>
+    let box = document.getElementById('box');
+    console.log(box.childNodes);
+    /**
+     * box节点共有五个节点
+     * p节点和注释节点之间也有空白节点
+     * p节点后面也有空白节点
+     * 
+     * babydoge dogggggg前后是没有空白节点的，空白节点就是文本节点，它们是一体的
+    */
+</script>
+</body>
+</html>

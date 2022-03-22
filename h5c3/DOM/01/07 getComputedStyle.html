@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box" style="color: red;">
+        hello world
+    </div>
+<style>
+    #box {
+        width: 100px;
+        height: 100px;
+        background-color: springgreen;
+    }
+</style>
+<!-- <script>
+    let box = document.getElementsByTagName('div')[0];
+    const id = window.getComputedStyle(box)["color"];
+    let backgroundColor = window.getComputedStyle(box)["background-color"];
+    let backgroundColor = window.getComputedStyle(box).getPropertyValue("background-color");
+    // window.getComputedStyle只能用于获取css样式，不包括标签除style外的其他属性
+    // 垃圾旧版ie没有window.getComputedStyle
+</script>
+</body> -->
+
+<script>
+    // window.getConputedStyle(obj)['color']
+    // 该方法用于获取元素对象的样式
+
+    let height = window.getComputedStyle(document.getElementById('box')).height;
+    console.log(height);
+    // 获取#box的height样式
+</script>
+</html>
