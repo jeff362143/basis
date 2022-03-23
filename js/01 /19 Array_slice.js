@@ -4,8 +4,8 @@
 
 let arr = [0, 1, 2, 3, 'str', undefined, null];
 let slicedArr = arr.slice(0, 4);
-console.log(slicedArr);
-// slice参数：
+console.log(slicedArr, arr);
+// slice参数：(slice不会影响真实数组对象,splice会影响真实数组)
 // 从start截取到end，不包括end项
 
 let arr2 = arr.slice(0, -1);

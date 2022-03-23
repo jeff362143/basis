@@ -1,3 +1,4 @@
+// 默认参数值
 function fun(arg = 'red') {
     console.log(arg);
 }
@@ -39,12 +40,12 @@ let num = [1,2];
 newNum = num.splice(0, 0, 1);
 console.log(newNum)
 
-// 实现方法
+// 实现数组的copyWithin方法(截取数组的start到end-1项，从pos项开始依次替换)
 Array.prototype.icktCopyWithin = function(pos, start, end) {
     // 获取粘贴的数组
     let subArr = this.slice(start, end);
 
-    // 调用splice方法
+    // 调用splice方法(splice方法是会影响数组本身的)
     this.splice(pos, end - start, ...subArr);
 
     // 使用apply

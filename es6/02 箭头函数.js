@@ -52,8 +52,6 @@ console.log(player);    //  console结果  Player {x;10 y:20}
 console.log(player.getPosition());
 
 // 箭头函数的this指向
-Let obj = function() {console.log(this)}
-Let obj = function() {conosole.log(this)}
 // 普通函数的this会指向它的直接调用者,但箭头函数指向它的父级作用域(一般都是window)
 
 
