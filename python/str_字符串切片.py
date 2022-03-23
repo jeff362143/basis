@@ -26,4 +26,3 @@ print(str[0:5])
 
 # 从start截取到end-1，每隔step步伐截取一个
 print(str[0:5:2])
-
