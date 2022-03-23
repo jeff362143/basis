@@ -1,0 +1,2 @@
+使用vscode完成git操作:
+基于vscode打开的文件是受git管理的，应该就可以使用vscode自带的git_gui进行管理
