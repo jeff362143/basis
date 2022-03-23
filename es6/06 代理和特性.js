@@ -1,9 +1,10 @@
 // 代理(Proxy)和特性(defineProperty)都可以实现双向绑定
 // Vue2基于defineProperty,Vue3基于Proxy实现数据双向绑定
+// proxy功能比defineProperty更强大
 
 
-// new Proxy实例会生成一个代理对象,操作代理对象时会受到Proxy设置的限制；但是可以直接操作new Proxy准备代理的data对象，因此选择将data对象定义在函数中
-let data = function() {
+// new Proxy实例会生成一个代理对象,它拥有被代理对象data的一切属性。操作代理对象时会受到Proxy设置的限制；但是可以直接操被代理的data对象，因此选择将data对象定义在闭包函数中
+let proxyData = function() {
     let data = {
         name: 'jeff',
         desc: 'yellow lamp'
@@ -31,10 +32,8 @@ let data = function() {
 }();
 
 // 尝试修改以及读取   被代理的对象的属性值
-console.log(data.desc);
-data.desc = "true";
-
-
+console.log(proxyData.desc);
+proxyData.desc = "true";
 
 
 
@@ -56,4 +55,6 @@ Object.defineProperty(lamp, 'color', {
 })
 
 // 需要将枚举项设置为true
+console.log(lamp);
+lamp.color = '1'   // 修改无效
 console.log(lamp);

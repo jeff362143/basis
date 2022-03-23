@@ -29,6 +29,6 @@ let keys = Object.getOwnPropertySymbols(obj);  //  [Symbol(), Symbol('fox')]
 // demo:
 s1 = Symbol();
 s2 = Symbol();  
-Let obj = {[s1]: 1, [s2]: 2}
+obj = {[s1]: 1, [s2]: 2}
 keys = Object.getOwnPropertySymbols(obj);   //   [Symbol(), Symbol()]
-Console.log(obj[0], obj[1]);    //  1, 2       必须使用数组变量,因为获取到的数组项尽管都是Symbol()，但每一个Symbol()的返回值都是不一样的。使用Symbol设置属性时,不要设置Symbol参数相同或者都为空，容易迷惑自己和他人
+console.log(obj[keys[0]], obj[keys[1]]);    //  1, 2       必须使用数组变量,因为获取到的数组项尽管都是Symbol()，但每一个Symbol()的返回值都是不一样的。使用Symbol设置属性时,不要设置Symbol参数相同或者都为空，容易迷惑自己和他人

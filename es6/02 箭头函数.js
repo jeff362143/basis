@@ -65,4 +65,3 @@ let demo = function() {
     // node中this指向global对象，浏览器运行时指向window
 }
 demo();
-

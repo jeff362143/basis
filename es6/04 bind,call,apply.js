@@ -8,11 +8,27 @@ fun();      // undefined
 
 
 // bind用法(bind方法会返回一个函数,第一个参数用于指明该函数的作用域,无论该函数在哪里执行,它的作用域已经在声明该函数时通过函数参数指定了).    Bind方法第一参数后面可以再传入n个参数作为调用bind函数的参数,它与call很相似,最大的区别就是call传入参数必须使用数组一次性传完
-Let fn = getNum.bind(obj);
+let fn = obj.getNum.bind(obj);
 fn(); 	// 100
-Obj.num = 200;
+obj.num = 200;
 fn();   // 200, fn函数作用域是obj
 
 // call方法使用与bind一致,只是getNum.call(obj)表达式是将getNum放在obj作用域下执行一次，而不是bind方法返回一个函数。且传入参数时需要一次性使用数组传入。
 
 // apply方法(apply用法与call基本一致,只是传入函数参数时允许多次传入)
+
+
+console.log(this);  // {}
+/**
+ * node中采用的是commonJs规范，每一个js文件都是可以导入导出的
+ * 因此直接打印this会指向module.export，普通文件的module.export为{}
+ */
+
+/**
+ * node运行时的顶层对象是global对象
+ */
+let fun2 = function() {
+    console.log(this);    // global，函数中的this指向global对象
+    this.desc = 'global'
+}
+fun2()
