@@ -12,11 +12,11 @@
     let div = document.getElementById('div');
     let div2 = div.cloneNode();
     // console.log(div2);
-    // cloneNode只会节点类型和Name不会复制nodeValue
+    // cloneNode只会复制节点类型和Name不会复制nodeValue
 
     let btn = document.createElement('button');
     // div.append(btn);
-    // append插入后在父元素的最后面
+    // append插入的元素后在父元素的最后面
 
     document.body.insertBefore(btn, div);
     // 父元素可以设置插入新元素到某一个子元素前面

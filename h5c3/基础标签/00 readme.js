@@ -9,8 +9,8 @@
  * 上面标签为table row 、table head？（这样记有助记忆）
  * th高度只能被内容撑起，td可被height影响
  * 
- * 02 css选择器
- * 使用href属性引入css文件
+ * 02 css选择器
+ * link标签使用href属性引入css文件
  * 默认属性：a标签的text-decoration和ul的list-style常需要去除默认属性
  * 
  * 03 文字属性
@@ -18,9 +18,9 @@
  * 
  * 04 继承样式是权重最低的
  * 
- * 05 label标签的for属性与input的id值进行绑定
- * type为radio的input标签设置name值为一致来避免重复选择
- * 下拉框:<select><option></option></select>
+ * 05 label标签的for属性与input的id值可以进行绑定
+ * type为radio的input标签是单选框,设置name值为一致来避免重复选择
+ * 下拉框:<select><option></option></select>
  * 
  * 06
  * 自定义列表和ul，ol区别在于没默认属性和可以设置dt标签起标题作用

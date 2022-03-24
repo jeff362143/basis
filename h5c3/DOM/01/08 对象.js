@@ -12,3 +12,6 @@ for (let k in json) {
     // k为json对象的属性名
     console.log(json[k]);
 }
+
+
+

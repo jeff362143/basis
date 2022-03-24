@@ -21,13 +21,13 @@
         }
     </style>
     <script>
+        // 重写jq的animate方法
         let btn = document.getElementsByTagName('button')[0];
         let dom = document.getElementById('hehe');
         function animate(dom, obj, time, callBack) {
             let stepTime = 10;
-            // 间隔时间 
+            // 运动总次数
             let num = time / stepTime;
-            // 运动总次数
             let step = {};
             for (let i in obj) {
                 step[i] = (obj[i] - parseInt(getComputedStyle(dom)[i])) / num; 
