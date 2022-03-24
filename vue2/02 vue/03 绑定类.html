@@ -21,17 +21,20 @@
             1、对象
             2、数组
             3、字符串
-         -->
+            :class=""的引号环境中可以动态使用data中的属性(注意格式)
+        -->
+
+        <!-- js对象的属性名无法使用变量 -->
         <h1 :class="{
             color: true,
             center: true
         }">red</h1>
 
-        <h1 :class="'color ' + 'center'">   
+        <h1 :class="class1 + ' center'">   
             red
         </h1>
 
-        <h1 :class="['color', 'center']">
+        <h1 :class="[class1 , 'center']">
             red
         </h1>
     </div>
@@ -40,7 +43,9 @@
         let app = new Vue({
             el: '#app',
             data: {
-                  
+                class1: 'color',
+                // data中的属性无法直接调用同级属性
+                // num: [this.class1]
             },
             methods: {
 

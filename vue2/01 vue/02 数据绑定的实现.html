@@ -14,14 +14,16 @@
         {{msg}}
     </div>
     <script>
-        /**
-         * 数据绑定利用的是特性的set方法
-         * 三要素：
-         * 视图
-         * 数据
-         * 实现数据视图转化的vm层（Vue实例）
-        */
-
+    /**
+     * 数据绑定利用的是特性的set方法
+     * 三要素：
+     * 视图
+     * 数据
+     * 实现数据视图转化的vm层（Vue实例）
+     * 
+     * 注意:set方法触发时是因为data对象被绑定的属性发生了改变,初始化赋值是在绑定属性之前，不会触发set方法。Vue应该对初始化进行了特殊处理。
+    */
+    
     //    2  数据
        let data = {
            msg: 'webpack',
@@ -32,7 +34,6 @@
             get(){
                 // 不允许直接获取特性绑定的值，通过创建一个中转变量对象_data
                 // return this.data.msg
-
                 return this._data.msg
             },
             set(value){
@@ -50,7 +51,8 @@
             document.getElementById('app').innerHTML = innerHTML
         }
 
-        data.msg = "webpack的使用配置方法，我用过，但是现在我完全想不起来了"
+        
+        // data.msg = "webpack的使用配置方法，我用过，但是现在我完全想不起来了"
     </script>
 </body>
 </html>

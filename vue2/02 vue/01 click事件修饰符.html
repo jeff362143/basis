@@ -11,14 +11,19 @@
         <!-- vue绑定事件的两种方式 -->
         <button v-on:click="fun">click事件1</button>
         <button @click="fun">click事件2</button>
-        <!-- stop阻止冒泡 -->
-        <button @click.stop="fun">click事件2</button>
-        <!-- prevent阻止默认行为 -->
-        <button @click.prevent="fun">click事件2</button>
-        <!-- once只允许事件触发一次 -->
-        <button @click.once="fun">click事件2</button>
 
-        <!-- 绑定事件元素和触发事件元素是同一个才会调用事件函数 -->
+        <!-- stop阻止冒泡 -->
+        <div @click="fun">
+            <button @click.stop="fun">click事件3</button>
+        </div>
+
+        <!-- prevent阻止默认行为 -->
+        <button @click.prevent="fun">click事件4</button>
+        
+        <!-- once只允许事件触发一次 -->
+        <button @click.once="fun">click事件5</button>
+
+        <!-- 绑定事件元素和触发事件元素是同一个才会调用事件函数(触发子元素button无法生效) -->
         <div @click.self="fun">
             <button @click="fun"></button>
         </div>
