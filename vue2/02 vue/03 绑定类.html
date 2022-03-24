@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .color{
+            color: red;
+        }
+        .center{
+            text-align: center;
+        }
+    </style>
+    <div id="app">
+        <!-- vue2中给元素绑定上类有多种方式 -->
+        <!-- 
+            1、对象
+            2、数组
+            3、字符串
+         -->
+        <h1 :class="{
+            color: true,
+            center: true
+        }">red</h1>
+
+        <h1 :class="'color ' + 'center'">   
+            red
+        </h1>
+
+        <h1 :class="['color', 'center']">
+            red
+        </h1>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                  
+            },
+            methods: {
+
+            }
+        })
+    </script>
+</body>
+</html>

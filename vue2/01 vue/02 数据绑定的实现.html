@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1 视图 -->
+    <div id="app">
+        {{msg}}
+        <br>
+        {{msg}}
+    </div>
+    <script>
+        /**
+         * 数据绑定利用的是特性的set方法
+         * 三要素：
+         * 视图
+         * 数据
+         * 实现数据视图转化的vm层（Vue实例）
+        */
+
+    //    2  数据
+       let data = {
+           msg: 'webpack',
+           _data: {},
+       }
+    //    3 vm层，使用数据视图的转换
+        Object.defineProperty(data, 'msg', {
+            get(){
+                // 不允许直接获取特性绑定的值，通过创建一个中转变量对象_data
+                // return this.data.msg
+
+                return this._data.msg
+            },
+            set(value){
+                this._data.msg = value
+                updateView(this._data)
+            }
+        })
+
+        let spl = document.getElementById('app').innerHTML
+        function updateView(data) {
+            let innerHTML = spl.replace(/{{(\w+)}}/g, (match, $1) => {
+                console.log(match, $1)               
+                return data[$1] 
+            })
+            document.getElementById('app').innerHTML = innerHTML
+        }
+
+        data.msg = "webpack的使用配置方法，我用过，但是现在我完全想不起来了"
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 过滤器函数总接收表达式的值 (之前的操作链的结果) 作为第一个参数。过滤器函数将会收到 msg 表达式的值作为第一个参数。 -->
+        <h2>{{msg | toUpper}}</h2>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        /**
+            https://www.cnblogs.com/Jeff362143/p/15948792.html
+
+            过滤器存在全局定义和局部定义两种方式
+            全局定义是在创建Vue实例之前调用Vue.filter方法
+            局部定义是在实例的filter属性中定义函数
+        */
+
+        // 注释掉下面的局部Vue实例过滤器，定义一个全局过滤器。
+        // 全局过滤器必须在创建Vue实例之前
+        Vue.filter('toUpper', function(msg) {
+            return msg.toUpperCase()
+        })
+
+        let data = {
+            msg: 'message'
+        }
+        let app = new Vue({
+            el: '#app',
+            data,
+            // 局部定义，只能在该Vue实例中使用
+            // filters: {
+            //     toUpper: function(msg) {
+            //         return msg.toUpperCase()
+            //     }
+            // }
+        })
+    </script>
+</body>
+</html>

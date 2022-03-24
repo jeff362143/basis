@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 
+            v-if,v-else-if,v-else是一对.
+            该例子下，在v-if执行后，不会再去考虑v-else-if和else了，与传统判断语法一致
+         -->
+        <h1 v-if="flag">v-if</h1>
+        <h1 v-else-if="flag">v-else-if</h1>
+        <h1 v-else>v-else</h1>
+
+        <!-- v-show为false只是隐藏该元素,display为false。这是与v-if的区别 -->
+        <h1 v-show="!flag">v-show</h1>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                  flag: true
+            },
+        })
+    </script>
+</body>
+</html>

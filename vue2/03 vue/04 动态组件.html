@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="toggle">动态组件</button>
+        <!-- 动态组件语法格式 -->
+        <component :is="page"></component>
+    </div>
+
+    <script src="../vue.js"></script>
+    <script>
+        // https://www.cnblogs.com/Jeff362143/p/15955142.html
+
+        // Vue.extend使用基础Vue构造器创建一个子类构造器。参数是一个包含数组选项的对象。
+        // Vue.extend在业务开发中使用的不多，它会用于开发全局组件
+
+        // 创建组件Home
+        let Home = Vue.extend({
+            template: '<h1>Home page</h1>'
+        })
+        
+        // 创建组建List
+        let List = Vue.extend({
+            template: '<h1>LIST PAGE</h1>'
+        })
+
+        // 全局注册组件
+        Vue.component('Home', Home)
+        Vue.component('List', List)
+
+        let app = new Vue({
+            // 局部注册组件
+            components: {
+                Home, List
+            },
+            el: '#app',
+            data: {
+                page: 'Home'
+            },
+            methods: {
+                toggle() {
+                    if (this.page == 'Home') {
+                        this.page = 'List'
+                    } else {
+                        this.page = 'Home'
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

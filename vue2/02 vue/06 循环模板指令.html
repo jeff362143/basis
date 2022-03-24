@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- v-for遍历数组 -->
+        <li v-for="item,index in colors" :key="index">{{item}}</li>
+        <li v-for="(item, index) in colors" :key="index">{{index}}----{{item}}</li>
+
+        <!-- v-for遍历对象 -->
+        <li v-for="(item, index) in obj" :key="index">{{index}}---{{item}}</li>
+
+
+        <!-- 
+            但在实际使用中遇到情况更多是需要多元素配合的。
+
+假如我们想连续使用多个li标签和hr标签，可采用以下语法(v-for标签绑定的元素中的内容会被遍历多次)。但是这样使用会多出一个冗余标签div，
+         -->
+        <div v-for="(item, index) in colors" :key="index">
+            <li>{{item}}--{{index}}</li>
+            <hr>
+        </div>
+        <!-- 
+            VUE提供的template模板，template是模板占位符，可以用于包裹元素，但在循环渲染过程不会渲染到页面中
+            template是一个模板占位符，不允许绑定:key。可绑定在内部元素li上
+         -->
+        <template v-for="(item, index) in colors">
+            <li @click="fun(index)">{{item}}--{{index}}</li>
+            <hr>
+        </template>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                  colors: ['red', 'white', 'black'],
+                  obj: {
+                      desc: 'js obj',
+                      name: 'none'
+                  }
+            },
+            methods: {
+                fun(index) {
+                    console.log(index)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

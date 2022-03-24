@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1 v-text="msg"></h1>
+
+        <h1 v-html="html"></h1>
+
+        <!-- 1  v-once属于一次性设置数据的，之后修改app中的对应数据也无法生效 -->
+        <h1 v-once>{{num}}</h1>
+
+        <!-- 2  v-once也可以用于设置属性  -->
+        <h1 v-once:title=""></h1>
+        <!-- 3  v-once与v-text连续使用 -->
+        <h1 v-once v-text=""></h1>
+        <!-- 4  v-once在子元素中仍然生效 -->
+        <h1 v-once>
+            <h2>{{}}</h2>
+            <h2 v-html=""></h2>
+        </h1>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        let data = {
+            msg: 'message',
+            html: '<li>hello</li>',
+            num: 100
+        }
+        let app = new Vue({
+            el: '#app',
+            data
+        })
+        // v-once设置的数据无法修改更新
+        data.num = 10
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="toggle">button</button>
+        <div v-fxc-show="flag">v-fxc-show</div>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        let data = {
+            flag: true
+        }
+        /**
+         * https://www.cnblogs.com/Jeff362143/p/15954097.html
+         * 
+         * Vue的静态方法directive自定义指令：
+         * 1、自定义的指令fxcShow在元素中使用时需要转换为v-fxc-show(前面自动加上v-，驼峰命名转化为小写并用-连接)
+         * 2、第二个参数是一个函数，该函数的第一个参数指向绑定的元素对象；第二个参数指向一个指令信息对象，该对象的value属性和oldValue分别为该指令在标签中对应的新老值
+        */
+        Vue.directive('fxcShow', (dom, obj) => {
+            // console.log(dom, obj)
+
+            if (obj.value !== obj.oldValue) {
+                dom.style.display = obj.value ? '' : 'none';
+                // display设置为空即默认值block
+            }
+        })
+        let app = new Vue({
+            el: '#app',
+            data,
+            methods: {
+                toggle() {
+                    this.flag = !this.flag;
+                }
+            }
+        })
+        
+    </script>
+</body>
+</html>

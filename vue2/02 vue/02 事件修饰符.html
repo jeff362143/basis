@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 键盘修饰符 
+        以鼠标左键点击该按钮同时按住键盘的ctrl，alt，shift
+        有点奇怪。正经人谁这么设置
+        -->
+        <button @click.ctrl="fun">按钮3</button>
+        <button @click.shift="fun">按钮4</button>
+        <button @click.alt="fun">按钮5</button>
+
+
+        <!-- 键盘事件 -->
+        <input type="text" @keyup.enter="fun">
+        <input type="text" @keyup.delete="fun">
+        <input type="text" @keyup.up="fun">
+        <input type="text" @keyup.65="fun">
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                  
+            },
+            methods: {
+                fun(e) {
+                    if (e.keyCode === 65) {
+                        console.log("键盘按下都会传递过来一个键盘对象,可以通过e.keyCode判断它是哪个按键,a按键的keyCode是65")
+                    }
+                    console.log('fun')
+                }
+            }
+        })
+    </script>
+</body>
+</html>

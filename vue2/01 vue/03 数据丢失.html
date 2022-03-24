@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>{{desc[0]}}</h2>
+        <h2>{{msg}}</h2>
+        <h3>{{num}}</h3>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        /**
+         * 数据丢失是VUE框架的bug
+        */
+        let data = {
+            msg : '数据丢失',
+            desc : ['js'],
+            num: ''
+        }
+        let app = new Vue({
+            el: '#app',
+            data,
+        })
+        // 修改数据等待vm响应去修改视图
+        // data.desc[0] = '修改后的desc';
+        app.$set(app.desc,0, '修改后的desc')
+        /**
+         * 笔记链接
+         * https://www.cnblogs.com/Jeff362143/p/15945704.html
+         * 
+         * 
+         * 1、数据会丢失的情况1:修改data中desc[0]的值，但是页面并没有更新。
+         * 因为数组项并没有被修改视图
+         * 
+         * 解决方法有：1、修改一个data中基本变量的值并成功在视图中显示出来(必须在视图显示出来)  2、修改整个数组的值
+        */
+        /**
+         * 修改基本变量   data.msg = 'newMsg'
+         * 修改整个数组   data.desc = ['newDesc']
+         */
+
+
+         /**
+          * 数据会丢失情况2：数组新增子项
+          * 解决方法：修改整个数组的值
+         */
+
+        /**
+         * 数据丢失情况3
+         * 对象的属性更新视图无法生效
+        */
+
+        /**
+         * 数据丢失情况4
+         * 给data新增数据num
+         * 新增数据是使用app.num而不是app.data.num
+         * 
+         * num在Vue实例已经存在但是无法更新在视图中，这是因为Vue规定需要在data对象中初始化
+        */
+        // app.num = 10;
+        //  使用的是app的num属性，而不是app.data.num。
+        // data对象只是一个临时中转站，并不存在app.data这样一个对象
+
+
+        /**
+         * 在第一到第三种情况中，Vue官方提供了一种更保险的方法修改属性值     $set
+         * 
+         * app.$set()  第一个参数可以是Vue实例对象，也可以是其他对象
+         * 第二个参数是属性名称，第三个参数是属性值
+         */
+
+    </script>
+</body>
+</html>
+
+

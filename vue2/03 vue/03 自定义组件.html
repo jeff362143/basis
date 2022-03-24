@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <Home></Home>
+    </div>
+    <!--   1、 创建一个自定义组件 -->
+    <template id="tpl">
+        <button @click="fun">button</button>
+    </template>
+
+    <script src="../vue.js"></script>
+    <script>
+        // https://www.cnblogs.com/Jeff362143/p/15954840.html
+
+        // 2、 Vue实例创建前定义组件类
+        // Vue.extend使用基础Vue构造器创建一个子类构造器。参数是一个包含数组选项的对象。
+        // Vue.extend在业务开发中使用的不多，它会用于开发全局组件
+        let Home = Vue.extend({
+            // 指向上面创建的组件模板
+            template: '#tpl',
+            // 组件的设置属性methods、computed时与Vue实例一致类型为对象，但是data只能是函数,且需要返回一个对象
+            data() {
+                return {
+
+                }
+            },
+            methods: {
+                fun() {
+                    console.log('自定义组件的点击事件函数')
+                }
+            },
+            computed: {
+
+            }
+        })
+
+        // 3、全局注册
+        Vue.component('Home', Home)
+
+        let app = new Vue({
+            // 3、局部注册
+            components: {
+                Home
+            },
+            el: '#app',
+            data: {
+            },
+            methods: {
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{msg.toUpperCase() + '这里提供了JS环境,msg无非是调用变量罢了'}}</h1>
+
+        <h2 v-bind:title="title">动态设置属性</h2>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        let data = {
+            msg: 'helloworld',
+            title: 'v-bind:title'
+        }
+        let app = new Vue({
+            el: '#app',
+            data
+        })
+        data.title = '也可以使用  :title  语法糖'
+    </script>
+</body>
+</html>

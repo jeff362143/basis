@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{dealTitle}}
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        /**
+            https://www.cnblogs.com/Jeff362143/p/15948913.html
+        */
+        let data = {
+            title: 'this is a title'
+        }
+        let app = new Vue({
+            el: '#app',
+            data,
+            computed: {
+                // 计算属性函数的第一个参数指向该Vue实例
+                dealTitle(app) {
+                    return app.title.toUpperCase()
+                } 
+            }
+        })
+
+        // Vue实例中title的值发生了改变，视图上的计算属性也随之变化
+        setTimeout(() => {
+            app.title = "title was changed"
+        }, 2000)
+    </script>
+</body>
+</html>

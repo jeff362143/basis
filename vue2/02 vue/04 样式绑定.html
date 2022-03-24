@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        传统的行内样式style是采用字符串格式：style="color: red;"
+        Vue实例的样式绑定采用对象格式且会检查是否是变量
+     -->
+    <div id="app">
+        <h1 :style="{color: span}" @click="fun">
+            hello 
+        </h1>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                  span: 'red'
+            },
+            methods: {
+                fun() {
+                    this.span = 'black'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

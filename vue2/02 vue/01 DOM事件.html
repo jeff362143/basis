@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- vue绑定事件的两种方式 -->
+        <button v-on:click="fun">click事件1</button>
+        <button @click="fun">click事件2</button>
+        <!-- stop阻止冒泡 -->
+        <button @click.stop="fun">click事件2</button>
+        <!-- prevent阻止默认行为 -->
+        <button @click.prevent="fun">click事件2</button>
+        <!-- once只允许事件触发一次 -->
+        <button @click.once="fun">click事件2</button>
+
+        <!-- 绑定事件元素和触发事件元素是同一个才会调用事件函数 -->
+        <div @click.self="fun">
+            <button @click="fun"></button>
+        </div>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                  
+            },
+            methods: {
+                fun() {
+                    console.log('fun')
+                }
+            }
+        })
+    </script>
+</body>
+</html>
