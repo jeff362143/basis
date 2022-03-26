@@ -1,0 +1,62 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+</head>
+<body>
+<div id="app">
+    {{ info }}
+    {{this.json}}
+</div>
+<button @click="test">test</button>
+<script type = "text/javascript">
+    new Vue({
+        el: '#app',
+        data () {
+            return {
+                info: null,
+                username: 'jeff',
+                password: '362143',
+                json: {
+                    'username': 'jeff',
+                    'password': '362143'
+                }
+            }
+        },
+        methods:{
+
+        },
+        mounted () {
+            // 登录测试，直接使用js对象
+            // this.json是对象，直接使用单引号后端会接收到[Object Object]   ``单引号是用于字符串变量的（也许只能使用字符串）,因此要进行转换
+            // let jsonStr = JSON.stringify(this.json);     //  对象转换为json数据
+            // axios.post('http://localhost:9999/Blog/Login',`json=${jsonStr}`)
+
+            //测试博客列表(get方法)
+            // axios.get('http://localhost:9999/Blog/GetBlogList')
+
+            //  获取博客内容测试
+            axios.post('http://localhost:9999/Blog/GetMessage')
+                .then(
+                    response => (this.info = response.data,alert(typeof response.data))
+                    // function (response) {
+                    //     if(response){
+                    //         this.info = response;
+                    //     }else {
+                    //         alert("false")
+                    //     }
+                    // }
+                ) .catch(function (error) { // 请求失败处理
+                console.log(error);
+            });
+        }
+    })
+    //    箭头函数的this指向和普通函数指向不一样
+    //     function (response) {
+    //         alert(response)
+    //     }
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BBS/BBS.iml" filepath="$PROJECT_DIR$/BBS/BBS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blogs/Blogs.iml" filepath="$PROJECT_DIR$/blogs/Blogs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ajax/ajax.iml" filepath="$PROJECT_DIR$/ajax/ajax.iml" />
+      <module fileurl="file://$PROJECT_DIR$/book/book.iml" filepath="$PROJECT_DIR$/book/book.iml" />
+      <module fileurl="file://$PROJECT_DIR$/httpservletrequest/httpservletrequest.iml" filepath="$PROJECT_DIR$/httpservletrequest/httpservletrequest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaweb.iml" filepath="$PROJECT_DIR$/javaweb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xml/xml.iml" filepath="$PROJECT_DIR$/xml/xml.iml" />
+    </modules>
+  </component>
+</project>

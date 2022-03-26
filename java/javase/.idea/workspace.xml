@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="46f10f03-fa8f-45f5-9f91-b00ba745a90a" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Stylus File" />
+        <option value="CSS File" />
+        <option value="Kotlin Class" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1dj4Ndvvi6jjrskbJVbu3EpEFCS" />
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="jdk.selected.JAVA_MODULE" value="11" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.applicationServers" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Test">
+    <configuration name="多态" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="package2.多态" />
+      <module name="javase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="package2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Str" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="package3.Str" />
+      <module name="javase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="package3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test" />
+      <module name="javase" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="作用域" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="package2.作用域" />
+      <module name="javase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="package2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="静态字段和静态方法" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="package2.静态字段和静态方法" />
+      <module name="javase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="package2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="继承" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="package2.继承" />
+      <module name="javase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="package2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="extends_Person" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="package2.extends_Person" />
+      <module name="javase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="package2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="package2.test" />
+      <module name="javase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="package2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.多态" />
+      <item itemvalue="Application.extends_Person" />
+      <item itemvalue="Application.test" />
+      <item itemvalue="Application.Test" />
+      <item itemvalue="Application.Str" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Str" />
+        <item itemvalue="Application.test" />
+        <item itemvalue="Application.extends_Person" />
+        <item itemvalue="Application.多态" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="46f10f03-fa8f-45f5-9f91-b00ba745a90a" name="Default Changelist" comment="" />
+      <created>1592925129045</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1592925129045</updated>
+      <workItem from="1592925130375" duration="79000" />
+      <workItem from="1592968825945" duration="10187000" />
+      <workItem from="1593050315226" duration="964000" />
+      <workItem from="1593092037514" duration="4129000" />
+      <workItem from="1593128823245" duration="9487000" />
+      <workItem from="1593347034684" duration="6620000" />
+      <workItem from="1593413353406" duration="7681000" />
+      <workItem from="1593431241876" duration="7482000" />
+      <workItem from="1593475630885" duration="3409000" />
+      <workItem from="1593481825785" duration="4578000" />
+      <workItem from="1593521517415" duration="794000" />
+      <workItem from="1593865544015" duration="1963000" />
+      <workItem from="1594725786139" duration="20000" />
+      <workItem from="1596157546383" duration="65000" />
+      <workItem from="1600001969869" duration="1088000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/javase$main_String.ic" NAME="main_String Coverage Results" MODIFIED="1593096005448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>package1.*</FILTER>
+    </SUITE>
+  </component>
+</project>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn1">ajaxTest</button>
+<h1></h1>
+<script>
+    var btn1 = document.getElementById("btn1");
+    btn1.onclick = function () {
+         var xmlhttprequest = new XMLHttpRequest();
+         xmlhttprequest.open("POST","http://localhost:10000/ajax/ajaxServlet",true);
+
+         //    在send方法前绑定一个onreadystatechange事件，处理请求完成后的操作。
+         xmlhttprequest.onreadystatechange = function(){
+        if(xmlhttprequest.readyState == 4 && xmlhttprequest.status == 200){
+                 //     将服务端返回的json字符串直接赋给页面
+                     div1.innerHTML = xmlhttprequest.response;
+                     alert(xmlhttprequest.response.length);// String类型
+         }
+         }
+
+        // POST方法利用send方法传递数据给后端，必须设置http头，不然后端接收数据会为null
+        // xmlhttprequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttprequest.setRequestHeader("Content-type", "application/json");
+
+        //     调用send方法发送请求
+         xmlhttprequest.send('sssssssssssss{"json":"xx"}');
+    }
+</script>
+</body>
+</html>
