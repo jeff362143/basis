@@ -13,8 +13,8 @@ class 作用域 {
 
     public static void main(String[] args) {
 //        demo_1
-          test1 test = new test1();   //test1修饰符为public，但是在其他包中，需导入
-          System.out.println(test.getTest_num());
+          Num test = new Num();   //test1修饰符为public，但是在其他包中，需导入
+          System.out.println(test.getNum());
 //        demo_2
           test obj = new test();
           obj.hi();

@@ -1,6 +1,6 @@
 package package1;
 
-public class char_String {
+public class Char_String {
     public static void main(String[] args) {
         /*
              字符可以使用十进制或者使用Unicode编码

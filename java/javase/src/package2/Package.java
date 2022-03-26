@@ -14,10 +14,10 @@ public class Package {
      */
     public static void main(String[] args) {
         //    demo_1
-        test1 test1 = new test1();
-        System.out.println(test1.getTest_num());
+        Num test1 = new Num();
+        System.out.println(test1.getNum());
 //      demo_2
-        package1.test1 test12 = new test1();
-        System.out.println(test12.getTest_num());
+        Num test12 = new Num();
+        System.out.println(test12.getNum());
     }
 }

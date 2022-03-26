@@ -1,0 +1,6 @@
+classpath是JVM用到的一个环境变量，它用来指示JVM如何搜索class。
+对于其中污染系统问题，暂时理解不够透彻。。。。
+
+定义对象数组,就跟定义普通数组一样
+class Test{}
+Test []test = new Test[]{ new Test,};
