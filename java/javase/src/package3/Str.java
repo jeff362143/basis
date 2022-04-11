@@ -8,5 +8,9 @@ public class Str {
     public static void main(String[] args) {
         String str = new String(new char[]{'h','e','l','l','o'});
         System.out.println(str);
+
+//      java有char数据类型
+        char alphabet = 'z';
+        System.out.println(alphabet);
     }
 }

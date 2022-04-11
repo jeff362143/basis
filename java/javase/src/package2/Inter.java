@@ -9,15 +9,6 @@ interface Student extends Human
 3、接口中可以定义一个default方法，继承的子类可以不必实现该方法，只在需要时再重写
 
 
-
-
-
-
-
-
-
-
-
 4、接口可以定义字段，只是有两个限制：
 a.字段修饰必须是 public static final类型,可以省略    b.初始化后必须赋值
  */
