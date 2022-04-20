@@ -9,8 +9,6 @@ iphone = re.compile(r'1[3-9]\d{9}')
 iphoneList = iphone.findall('dwdw13123456789')
 print(iphoneList)
 
-
-
 '''
 用.*可以匹配全部字符
 .可以匹配除了换行之外到所有字符
