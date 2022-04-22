@@ -8,6 +8,8 @@ numTuple = numTuple[:2]
 print(numTuple)
 
 '''
-可迭代对象:可以通过迭代器访问全部属性的对象就是可迭代对象。
+可迭代对象:可以通过for循环访问全部属性的对象就是可迭代对象。
 for in可以用于遍历可迭代对象(包括有下标的list和无下标的dict)
+
+python的for in本质就是通过不断调用迭代对象的next方法的
 '''
