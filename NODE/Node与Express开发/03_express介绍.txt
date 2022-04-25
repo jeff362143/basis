@@ -1,0 +1,5 @@
+使用express自然绕不开npm。
+
+npm在package.json文件中管理项目的依赖项。运行npm init创建这个文件。
+npm install --save express,增加--save选项会更新package.json文件。
+

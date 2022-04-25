@@ -1,0 +1,15 @@
+mongodb存储是采用json格式。这是一个介于关系数据库和非关系数据库的产品，是非关系数据库中功能最丰富的。
+
+安装过程使用菜鸟教程相关文档完成:
+1、linux的curl命令下载官网的mongodb
+2、将mongodb的可执行文件所在目录加入系统path
+3、创建mongodb的数据和日志存放文件夹
+4、后台启动或者可视命令行启动mongodb
+后台启动：
+mongod --dbpath /usr/local/var/mongodb --logpath /usr/local/var/log/mongodb/mongo.log --fork
+可视命令行启动:
+mongod --config /usr/local/etc/mongod.conf(该目录是mongodb的配置文件)
+根据菜鸟驿站命令使用失败了
+
+5、打开mongodb
+./mongodb(该可执行文件位于mongodb的安装目录下)

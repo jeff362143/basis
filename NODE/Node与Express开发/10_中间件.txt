@@ -1,0 +1,3 @@
+express中常使用的中间件:body-parser(获取post请求体数据)、cookie-parser(处理cookie)
+
+express中使用use方法调用中间件。

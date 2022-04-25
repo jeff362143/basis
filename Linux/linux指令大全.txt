@@ -1,0 +1,82 @@
+# mac shell下使用  man 指令  可以轻易获取指令详细信息。可惜是全英文的
+
+cat:
+cat -n fileName 由1开始对所有输出行数编号
+cat -b fileName 与-n情况相似，不会对空白行进行编号
+cat -n index.sh > index2.txt    # 将index.sh的内容加上行号输入到index2.txt中
+
+cd:
+cd ~意味着回到home directory
+
+chmod:下面为简单使用
+linux/unix把档案存取分为:拥有者、群组和其他三类。a代表这三类。
+读取权限r=4，写入权限w=2，执行权限x=1
+chmod a=rwx fileName与chmod 777 fileName本质一样；都是设置三者都有读写执行权限。
+chmod a+r fileName  设置所有人都有读取权限
+chmod a-r fileName  设置所有人都没读取权限
+
+mac下的一个文件权限:-rwxrwxr-x@
+可见分为了三层,拥有者和同组群者有rwx权限，其他人有读执行权限,没有写权限
+
+chown: ？
+改变文件归属,只有管理管理者(root)可使用。
+
+cut
+显示每行开始从num1-num2的文字
+echo 'helloworld' | cut -c1-6
+
+find:?
+可以指定文件的大小，最近更新时间等因素
+
+less:
+less用于浏览文本文件，less不会一下子显示全部文件内容。需使用上下健换位置(无法使用鼠标)
+在浏览大型文本文件时，它会比vi，cat有优势，更不会卡顿。
+
+ln:
+为文件生成一个链结(快捷方式?):又分软链接和硬链接
+ln fileName linkName
+
+locate:?
+建立资料库
+
+ls:
+-a 显示隐藏文件夹
+-l
+
+more:
+用于浏览文本文件，不过会一页一页方便浏览。空格翻页，b健回退
+
+mv：
+1、移动文件 2、改文件名
+
+touch:
+用于修改文件时间记录,文件名不存在时就会创建该文件
+-c选项,文件不存在就不新建该文件
+touch -t 01011001 index.sh  # 修改该文件修改和创建时间为1月1号10点
+
+at:
+用于设置在某一个时间执行某个程序
+
+cal:
+显示日历
+cal 2021，显示2021年12个月的月历
+
+crontab：
+为时间表，可设置比如每天12点都执行某一个程序
+􏱫􏰕􏳂􏰔􏳒􏱠􏱝时间表格式如下:
+f1 f2 f3 f4 f5 program
+
+ps:显示瞬时进程
+ps -A显示全部进程
+
+top:即时显示进程状态
+
+压缩文件后缀名为gz
+gzip用来压缩文件
+gunzip用于解压缩文件
+gzcat可以查看压缩文件的内容
+
+
+压缩文件名为tar(常用,详细命令查书吧)
+将文件夹0416压缩，压缩文件名为test.tar
+tar -cvf test.tar 0416

@@ -1,0 +1,12 @@
+node是事件驱动型编程。创建服务器时http请求就是要处理的事件。
+路由是将请求(由 URL 和 HTTP 方法指定)路由到处理它们的代码去的一种机制。。如express中的路由：
+app.get('/', function(req, res){ res.type('text/plain');
+res.send('Meadowlark Travel');
+});
+
+静态资源：
+用Node提供静态资源只适合小型项目，比较大的项目，应该使用Nginx或CDN之类代理服务器提供静态资源。
+
+如果你用过 Apache 或 IIS，可能习惯于只是创建一个 HTML 文件，访问它，然后让它自动 发送到客户端。
+Node 不是那样的:我们必须打开文件，读取其中的内容，然后将这些内容 发送给浏览器。
+

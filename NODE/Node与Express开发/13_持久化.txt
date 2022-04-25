@@ -1,0 +1,6 @@
+服务器的持久化指的就是永久保存。
+
+音视频、文件等二进制数据需要存储在一台计算机的文件系统中，当然这些文件的名称需要存储在数据库中。
+在生产环境中，用内存存储会话数据是会被diss的，好在使用数据库用来存储会话是很方便的；有专门的session-mongoose 包提供 MongoDB 会话存储，
+但MongoDB 不一定是会话存储的最佳选择，它有点杀鸡用牛刀的意味。另 外一个流行又易用的会话持久化方案是用 Redis(http://redis.io/)。
+请参阅 connect-redis 包(https://www.npmjs.org/package/connect-redis) 来 了 解 如 何 设置使用 Redis 做会话存储。
