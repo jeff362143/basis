@@ -1,0 +1,3 @@
+<wxs module="demo" src="./demo.wxs"></wxs>
+<view>{{demo.num}}</view>
+<view>{{demo.getMax(arr)}}</view>

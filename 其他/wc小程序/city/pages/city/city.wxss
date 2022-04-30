@@ -1,0 +1,58 @@
+.choose-city {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  background-color: #efefef;
+  font-size: 18px;
+}
+.choose-content {
+  font-weight: bold;
+}
+.letters {
+  position: fixed;
+  right: 0;
+  top: 50px;
+  background-color: #fff;
+  z-index: 10;
+  text-align: center;
+}
+.history .title,
+.hot .title {
+  font-size: 14px;
+  color: #666;
+  padding:0 10px;
+  height: 30px;
+  line-height: 30px;
+}
+.history .content,
+.hot .content {
+  padding: 10px;
+}
+.history .content text,
+.hot .content text {
+  display: inline-block;
+  width: 27%;
+  text-align: center;
+  margin-left: 10px;
+  height: 30px;
+  border: 1px solid #ccc;
+  line-height: 30px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.city .city-title {
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px;
+  background-color: #efefef;
+  /* font-weight: bold; */
+  font-size: 23px;
+}
+.city .city-item {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px;
+  border-bottom: 1px solid #ccc;
+}

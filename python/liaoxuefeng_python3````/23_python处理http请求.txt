@@ -1,0 +1,5 @@
+python自带了一个WSGI服务器wsgiref，它实现了WSGI接口。
+
+import wsgiref后就可以编写wsgi接口创建服务器来处理http请求了
+
+原生wsgi处理有点复杂，引入Flask和Django框架快捷处理http请求

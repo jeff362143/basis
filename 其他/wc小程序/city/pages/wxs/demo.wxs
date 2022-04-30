@@ -1,0 +1,17 @@
+// 定义变量
+var num = 123;
+
+// 获取数组中的最大值
+function getMax(arr) {
+  // 定义结果
+  var result = '';
+  // 遍历
+  for (var i = 0; i < arr.length; i++) {
+    result = result > arr[i] ? result : arr[i]
+  }
+  return result;
+}
+
+// 向外暴露功能
+module.exports.num = num;
+module.exports.getMax = getMax;

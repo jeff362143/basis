@@ -1,0 +1,5 @@
+python中自带sqlite，是一种嵌入式数据库
+
+python与mysql交互:
+mysql是独立的进程,利用python管理安装工具pip安装与它连接的驱动(import mysql.connector)
+

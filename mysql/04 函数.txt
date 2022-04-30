@@ -1,0 +1,8 @@
+sql支持函数来处理数据
+主要的几种数据库管理工具函数兼容性很差，使用时需要备注以及小心。
+
+
+关于年份处理的函数
+Date()函数
+select cust_id, cust_name from cust where Date(time) between '2017-7-1' and '2024-11-23';
+

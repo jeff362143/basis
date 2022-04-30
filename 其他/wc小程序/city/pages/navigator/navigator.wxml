@@ -1,0 +1,6 @@
+<!-- 定义navigator组件 -->
+<navigator url="/pages/form/form?num=100&color=red" open-type="navigateTo">进入form页面</navigator>
+<!-- 默认值就是navigateTo -->
+<navigator url="/pages/form/form" >进入form页面</navigator>
+<!-- tab页面 -->
+<navigator url="/pages/index/index" open-type="switchTab">进入index页面</navigator>

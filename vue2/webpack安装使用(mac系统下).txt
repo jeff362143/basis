@@ -1,4 +1,4 @@
-mac系统下许多操作需要一定权限，
+mac系统下使用npm管理工具需要权限，
 所以无论安装还是卸载webpack都需要使用sudo作为开头
 
 
@@ -8,4 +8,5 @@ webpack ./index.js ./
 
 
 列出本地或全局安装的npm包
+npm list --depth xxxxxx (想不起来了，查搜索引擎去)
 

@@ -1,0 +1,60 @@
+mysql -u root -p 用于在命令行登录
+
+(Mysql命令是不区分大小写的，但是为了规范可以将关键字规定为大写，表名为小写）
+人们常用数据库来形容它们正在使用的数据库软件，其实它应该被称为DBMS（数据库管理系统），数据库为一份可以存储在电脑硬盘上的文件。我们使用的Mysql软件就是DBMS，一种数据库软件。
+在使用数据库时，应该总是定义主键，唯一表识数据库表每一行数据的这一列被称为主键。（主键不可为NULL）
+
+SQL（结构化查询语言），它的目的快速从数据库读写数据。MySql软件安装的时候会默认安装命令行工具，但不会默认安装图形化管理工具，需要的话应该自行下载。
+数据库和表的处理操作可以通过gui或命令行执行
+
+创建删除数据库
+create database my_database;
+drop database my_database;
+
+创建表：
+create table customers(
+    cust_id int not null primary key auto_increment,
+    cust_name char(50) not null
+);
+
+删除表；
+drop table test;
+
+使用alter更新表
+给列加主键
+alter table customers add primary key(cust_id);
+
+删除列
+alter table customers drop column cust_id
+
+增加列
+alter table user add cust_id int primary key;
+alter table customers add cust_desc int;
+该命令创建列cust_desc，直接创建列desc会报错，因为desc是关键字
+
+表中插入数据(表中插入数据不需要使用table关键字)
+insert into customers(cust_name, cust_id, time, cust_desc) values ('jeff', 7, '2021-08-12', 'qa')
+
+
+基本命令：
+命令行中使用一个数据库前需要先指定数据库:use databases;
+show databases;
+show tables;
+show columns from table_name;(显示字段名，数据类型，默认值等) 等价于 describe table_name
+
+select DISTINCT user from table_name;  DISYINCT关键字告诉mysql只挑选不重复的user行，但只有user一列
+如何根据user项不同 获取多列数据
+
+select user from db limit 1; 挑选表🀄️列名为user的数据且限制为不超过1行
+
+select user from db limit 0,1;从第一行开始挑选数据且限制为不超过1行(初始行是第0行而不是第1行
+
+排序检索数据（select语句的order by + 表列名，默认是进行升序排序的）  
+Select * from customers order by cust_id;  
+在最后面加上 DESC 可以进行降序排序
+
+
+直接指明database，省去use database这一步骤
+select customers.cust_id from mysql.customrts;
+
+Select concat(customers.cust_id,':',customers.cust_name) from mysql.customers;

@@ -1,0 +1,111 @@
+数据渲染原理
+在小程序中，ui界面和js脚本的渲染是在不同的线程中。(ui是基于webview渲染的)
+
+wx小程序语法大概介绍：
+（1）组件、指令
+（2）路由
+（3）布局
+（4）模板
+定义并使用数据
+a、在js文件通过data属性定义数据
+b、在视图模板中通过插值语法渲染数据(类似vue)
+<view>
+    <view>{{num + 100}}</view>
+</view>
+更新数据
+this.setData({num: 2021})
+直接this.data.num = 2021，会出现数据更新视图没有更新现象(vue常见的数据丢失)
+
+
+组件
+wxml中的标签被称之为组件。
+wxml组件的共有属性可以给全部组件设置，特有属性只能给特有组件设置。
+共有属性有：
+id  class   style(设置延时)  hidden(隐藏组件)   data-name(自定义数据)    绑定事件
+事件也分为共有事件和特殊事件(触摸、长按、轻拍等一系列事件)
+
+view组件好比是html中的div元素，容器组件，可以独占一行。
+text组件用于定义文本，不会独占一行。(独有属性可设置长按是否可以选中文字，以及设置全角空格、半角空格、中文空格等操作)
+
+rich-text组件(<rich-text nodes="{{node}}}"></rich-text>)
+node变量可以是html标签、可以是dom节点(需包括不少节点相关信息)、可以是字符实体($gt)
+
+img组件:类似img标签，用于引入图片
+icon:引入字体图标(wc小程序自带)
+canvas：wx自带canvas组件
+map：定义地图组件
+多媒体组件video和camera(camera用于打开摄像头)
+
+
+指令(类似vue)
+指令是一种特殊的属性，用于实现功能。在小程序中通过wx:定义指令
+条件指令(wx:if)
+<view wx:if="{{flag}}"></view>
+
+循环指令(wx:for="data")
+必须设置wx:key,保证属性的唯一性(key值可以是id或者this)
+循环中默认的成员名称和索引值是index和item，可通过wx:for-index和wx:for-item设置自定义名称
+<view wx:for="data">{{item}}---{{index}}</view>
+
+block可以作为组件使用（添加样式，添加属性，添加指令），但是就是不会渲染在页面中（模板）。类似template标签(😅😅😅😅😅😅)
+
+容器组件
+swiper组件:可以用于制作轮播图
+cover-view组件：wc中不允许设置z-index，使用该组件可以定义覆盖在原生组件上的文本
+scroll-view：设置可滚动的组件
+
+wc小程序中使用的是commonJs规范
+
+进度条组件、开关组件等组件
+
+
+
+路由：小程序页面之间的跳转
+通过navigator组件或者通过navigator方法(组件中open-type属性设置打开的方式)
+在小程序中的页面分为两类
+第一类普通页面，在pages里面定义；第二类在tabBar里面定义的。
+这两类页面的切换方法是不同的，方式有四种：
+第一种 open-type = “navigateTo”
+用于打开一个普通页面
+第二种 open-type = “switchTab”
+用于切换tab页面
+第三种 open-type = “navigeteBack”
+用于返回上一个页面
+第四种 open-type = “redirect”
+重定向到一个页面
+wc小程序是通过栈管理页面的。open-type的值决定栈的变化。
+
+
+template用于定义模板组件，它与block区别在于它是可以复用的
+1	<!-- 定义模板 -->
+2	<template name="hello">
+3	  <view>你好，世界</view>
+4	</template>
+5
+6	<!-- 使用模板 -->
+7	<template is="hello"></template>
+8	<template is="hello"></template>
+
+
+wc中引入模板文件，使用import或者include组件
+<import src="./common.wxml"></import>
+<include src="./common.wxml"></include>
+<template is="demo"></template>
+
+
+
+布局
+rpx是一个单位，对px单位的一个升级，可以实现响应式布局。
+wc小程序默认将像素分为750rpx，这是相对像素。
+flex布局在wc小程序中是适用的。
+
+
+开放组件
+开放组件是为了开放用户信息
+在目前我们可以通过wx.getUserInfo获取用户的信息
+但是，小程序推荐我们使用open-data组件来获取用户的信息
+通过type 获取用户信息
+<open-data type="getUserInfo"></open-data>
+
+web-view组件，通过src引入网页
+

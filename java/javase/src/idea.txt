@@ -1,0 +1,2 @@
+coommand + n 用于快速生成getter,setter,constructor,toString
+

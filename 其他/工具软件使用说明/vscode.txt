@@ -1,0 +1,4 @@
+使用vscode完成git操作:
+使用vscode自带的git_gui进行管理很方便。
+
+vscode默认是按文件种类进行排序的(存在txt文件排序与访达中不同)

@@ -1,0 +1,48 @@
+<!-- 返回页面 -->
+<navigator open-type="navigateBack">返回</navigator>
+
+<!-- 重定向 -->
+<navigator url="/pages/city/city" open-type="redirect">重定向</navigator>
+
+<label for="username">用户名</label>
+<input type="text" placeholder="请输入用户名" id="username" password></input>
+
+<!-- 定义表单 -->
+<form bindsubmit="showData">
+<textarea></textarea>
+  <label>昵称</label>
+  <input type="text" placeholder="请输入昵称" name="nickName"></input>
+  <checkbox-group name="basketball">
+  <label>运动</label>
+    <checkbox wx:for="{{sports}}" wx:key="this" value="{{item.value}}">{{item.name}}</checkbox>
+  </checkbox-group>
+  <radio-group name="football">
+    <label>运动</label>
+    <radio wx:for="{{sports}}" wx:key="this" value="{{item.value}}">{{item.name}}</radio>
+  </radio-group>
+  <button type="primary" form-type="submit">提交</button>
+  <button type="warn" form-type="reset">重置</button>
+</form>
+
+<!-- 进度条 -->
+<progress percent="10" show-info></progress>
+
+<!-- 开关 -->
+<switch>开关</switch>
+
+<!-- 滑块组件 -->
+<slider min="0" max="100" step="10"></slider>
+
+<!-- 选择器 -->
+<picker mode="time">时间</picker>
+<picker mode="date">日期</picker>
+
+<picker-view style="height: 100px; width: 100%;">
+  <picker-view-column>
+    <view wx:for="{{colors}}" wx:key="this">{{item}}</view>
+  </picker-view-column>
+   <picker-view-column>
+    <view wx:for="{{colors}}" wx:key="this">{{item}}</view>
+  </picker-view-column>
+</picker-view>
+

@@ -1,0 +1,29 @@
+mysql仅支持正则表达式很小的一个子集         格式：regexp ''
+
+最简单的正则匹配
+mysql> select * from customers where cust_name regexp 'hzf';
+
+.预定符
+只要匹配内容中含有。 K xxx格式将匹配成功，并没有要求k为开头
+mysql> select * from customers where cust_name regexp 'k.';
+
+正则进行or匹配
+mysql> select * from customers where cust_name regexp 'hzf|kyn';
+
+[]匹配
+mysql> select * from customers where cust_name regexp 'kr[fsa]';
+
+特殊字符匹配   sql中转义都是使用两次\\
+\\n     \\.     \\-    \\()
+匹配反斜杠本身需要使用 \\\
+
+
+
+拼接字段
+mysql> select concat('(', cust_id, ')', cust_name) from customers;
+
+使用as可以创建计算字段（临时列）
+mysql> select cust_name, cust_id*100 as test, cust_id*200 as test2 from customers;
+
+
+

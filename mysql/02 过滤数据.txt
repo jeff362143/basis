@@ -1,0 +1,46 @@
+使用where过滤数据
+
+查询结果为empty set（0.00）时意味着未查找到匹配数据
+
+select Host from user where Host = 'localhost'
+sql中字符串也要使用单双引号
+
+select Host from user where Host <> 'localhost';
+<> 匹配的是不等于的数据       != 匹配的也是不等于的数据
+ 
+ 匹配范围内的数据  如 大于5，小于10
+ select cust_id from mysql where cyst_id between 5 and 10
+
+查找表中空数据以及非空数据
+select Host from user where Host is null;
+
+
+组合where子句
+
+使用AND操作符，同时过滤两个列值
+select user from mysql where user_id > 4 and user_name != "不蛰人的黄蜂";
+
+OR操作符（或操作）
+select user from mysql where user_id = 14 OR user_name != "不蛰人的黄蜂";
+
+where可包含 {0,} 次数的 AND 和 OR 操作符
+
+计算次序  AND优先级大于OR
+
+IN操作符 (where过滤数据 使用in用于限定范围 )
+mysql> select * from customers where cust_id in (1,2,3,4);
+
+
+
+like操作符(结合百分号和下划线通配符,通配符搜索时长一般比普通搜索来得更长，优先使用普通搜索
+select * from customers where cust_name like 'k%';
+%通配符可以匹配任意字符{0,}次
+
+下划线统配符（它与百分号通配符相似，但只能匹配单个字符）
+select * from customers where cust_name like 'k_';
+
+
+
+
+
+

@@ -1,0 +1,8 @@
+<!-- <view class="demo-px"></view>
+<view class="demo-rpx"></view> -->
+
+<view class="parent">
+  <view class="item">111</view>
+  <view class="item">222</view>
+  <view class="item">333</view>
+</view>

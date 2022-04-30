@@ -1,0 +1,6 @@
+# 设置一个断电，然后点击debug进入debug页面。选择step into my code开始一行一行代码运行(断点不能设置在第一行)
+print(1)
+print(2)
+print(3)
+print(4)
+print(5)

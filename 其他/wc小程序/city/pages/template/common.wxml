@@ -1,0 +1,7 @@
+<!-- 定义模板 -->
+<template name="demo">
+  <view>你好</view>
+</template>
+
+<!-- 定义视图 -->
+<view>世界</view>

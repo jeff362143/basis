@@ -1,0 +1,18 @@
+<!-- 定义模板 -->
+<!-- <template name="hello">
+  <view>你好，世界</view>
+</template> -->
+
+<!-- 使用模板 -->
+<!-- <template is="hello"></template>
+<template is="hello"></template> -->
+
+<!-- 引入模板 -->
+<import src="./common.wxml"></import>
+<template is="demo"></template>
+<template is="demo"></template>
+<template is="demo"></template>
+
+<!-- 引入视图 -->
+<include src="./common.wxml"></include>
+<!-- <template is="demo"></template> -->

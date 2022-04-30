@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="278e8748-1330-4006-aa72-feddddaa6f23" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../mysql/.idea/mysql.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/python.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Linux/linux命令行与shell脚本编程大全/06_basis.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../../Linux/linux命令行与shell脚本编程大全/06_basis.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Linux/linux命令行与shell脚本编程大全/11_basic.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Linux/linux命令行与shell脚本编程大全/11_basis_demo.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Linux/linux命令行与shell脚本编程大全/12_basis.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Linux/linux命令行与shell脚本编程大全/13_basic.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Linux/linux命令行与shell脚本编程大全/14_test.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Linux/linux命令行与shell脚本编程大全/15_basis.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Linux/linux命令行与shell脚本编程大全/16_signal.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../../Linux/linux命令行与shell脚本编程大全/16_signal.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Linux/linux命令行与shell脚本编程大全/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Linux/linux命令行与shell脚本编程大全/readme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../NODE/Node与Express开发/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../NODE/Node与Express开发/.idea/Node与Express开发.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../NODE/Node与Express开发/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../NODE/Node与Express开发/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../NODE/Node与Express开发/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../NODE/Node与Express开发/00_readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../NODE/Node与Express开发/02_从node开始.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../NODE/Node与Express开发/03_express介绍.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../NODE/Node与Express开发/05_QA.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../NODE/Node与Express开发/09_cookie_session.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../NODE/Node与Express开发/10_中间件.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../NODE/Node与Express开发/11_发送邮件.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../NODE/Node与Express开发/12_与生产相关.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../NODE/Node与Express开发/13_持久化.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../NODE/Node与Express开发/17_express中使用mvc.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../NODE/Node与Express开发/18_安全.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../NODE/Node与Express开发/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/META-INF/javase.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/package1/Arrays_Function.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/package1/array.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/package1/arrays.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/package1/char_String.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/package1/main_String.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/package1/test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/package1/test1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/package1/test2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/package2/Abstract_Human.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/package2/Constructor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/package2/Human.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/package2/OverLoad.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/package2/Package.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/package2/Person.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/package2/Student.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/package2/extends_Person.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/package2/func.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/package2/method.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/package2/method2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/package2/skill.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/package2/test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/package2/作用域.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/package2/多态.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/package2/接口.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/package2/笔记.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/package2/静态字段和静态方法.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/out/production/javase/package3/Str.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/src/package1/Array.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/src/package1/Char_String.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/src/package1/DimesionArray.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/src/package1/GetNum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/src/package1/Main_String.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/src/package1/Num.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/src/package2/ConstructorFunction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/src/package2/Inter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/src/package2/Package.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/src/package2/Polymorphic.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/src/package2/Static.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/src/package2/abstract_class/AbstractHunman.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/src/package2/abstract_class/Human.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/src/package2/extends_class/ExtendPerson.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/src/package2/extends_class/InstantiatePerson.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javase/src/package2/extends_class/Person.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/.idea/artifacts/BBS_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/.idea/artifacts/Blogs_Web_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/.idea/artifacts/ajax_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/.idea/artifacts/axios_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/.idea/artifacts/book_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/.idea/libraries/book_lib.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/.idea/libraries/gson_2_8_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/Blogs.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/control/adminServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/control/userServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/dao/imple/BaseDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/dao/imple/BlogDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/dao/imple/BlogListDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/dao/imple/CommentDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/dao/imple/ExpertDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/dao/imple/InformDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/dao/imple/MessageDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/dao/imple/UserDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/pojo/Blog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/pojo/BlogDetails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/pojo/BlogList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/pojo/Comment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/pojo/ComplainBlog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/pojo/Expert.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/pojo/Inform.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/pojo/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/pojo/UserAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/pojo/UserInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/pojo/UserMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/service/BlogListService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/service/BlogService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/service/CommentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/service/ExpertService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/service/InformService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/service/MessageService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/test/UserMessageTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/test/test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/test/userServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/utils/JdbcUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/web/WEB-INF/lib/commons-dbutils-1.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/web/WEB-INF/lib/druid-1.1.21.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/web/WEB-INF/lib/gson-2.8.6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/web/WEB-INF/lib/mysql-connector-java-8.0.16.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/web/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/web/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/com/web/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/druid.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/blogs/src/druidBlogs.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/javaweb.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/src/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/test/src/com/test/helloServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/test/src/com/test/helloServlet2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/test/test.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/test/web/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/test/web/a.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/test/web/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/xml/lib/dom4j-1.6.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/xml/src/books.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/xml/src/com/books.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/xml/src/com/books.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/xml/xml.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/javaweb/xml/xml/books.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../mongodb/macos/00_readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../02_函数_可变参数.py" beforeDir="false" afterPath="$PROJECT_DIR$/../02_函数_可变参数.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00 readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/01_切片和迭代.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/02.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/03_迭代器.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/04_函数式编程.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/05_map_reduce.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python3-廖雪峰[带标签完整版].pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vscode/vscode_index.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../vue2/webpack安装使用(mac系统下).txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../vue2/webpack安装使用(mac系统下).txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="$PROJECT_DIR$/../../../Maven/repository" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../Maven/apache-maven-3.8.2" />
+        <option name="userSettingsFile" value="$PROJECT_DIR$/../../../Maven/apache-maven-3.8.2/conf/settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="28K8CPDQkiD7vQFAouTZ7Cm8n1J" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RunManager">
+    <configuration name="06_错误处理" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="liaoxuefeng_python3" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/06_错误处理.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.06_错误处理" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="278e8748-1330-4006-aa72-feddddaa6f23" name="Changes" comment="" />
+      <created>1650953788714</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1650953788714</updated>
+      <workItem from="1650953789939" duration="326000" />
+      <workItem from="1650954163212" duration="1913000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/liaoxuefeng_python3$06_.coverage" NAME="06_错误处理 Coverage Results" MODIFIED="1651019626792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
