@@ -1,0 +1,6 @@
+Git提交的git commit是不会因为你再次提交就丢失的。
+栗子：
+1、你git commit的内容中含有一本字节很大的书，因此提交失败(git有限制提交内容大小)
+2、于是你把书删了，再次提交。然后git push
+结果会是fail，因为你commit两次，git也保存了两次commit，它会按顺序push保存的commit的内容，但第一次commit一直是fail的，导致第二次无法push。(我原先一直以为它的commit是在本地库起替换作用，原来并不是，是在远程库起替换作用)
+解决：我选择了使用git log先查看commit历史记录，再git reset --hard xxxx回退到之前的版本。
