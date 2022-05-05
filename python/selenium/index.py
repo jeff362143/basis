@@ -3,7 +3,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 import time
 
-# 将chrome浏览器缓存载入到新打开的chrome进程中，且浏览器缓存被多次使用的话selenium就报错.
+# 将chrome浏览器缓存载入到新打开的chrome进程中，浏览器缓存被多次使用的话selenium就报错(即只能打开一个浏览器窗口)
 option=webdriver.ChromeOptions()
 option.add_argument(r"user-data-dir=/Users/jeff/Library/Application Support/Google/Chrome/")
 

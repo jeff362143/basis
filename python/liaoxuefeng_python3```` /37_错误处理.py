@@ -13,7 +13,7 @@ finally:
 print('end')
 
 '''
-1、expect关键字后面可以不接错误类，只要有error就执行子语句
+1、expect关键字后面可以不接错误类，只要捕获到任意error就执行子语句
 2、可以连续使用expect捕获不同类型的错误
 3、expect可以后接else:(没有到捕获error时执行)
 '''

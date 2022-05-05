@@ -25,5 +25,7 @@ def B():
 
 Python 对协程的支持是通过 generator 实现的。
 
+
+
 asyncio 是 Python 3.4 版本引入的标准库，直接内置了对异步 IO 的支持。
 Python 从 3.5 版本开始为 asyncio 提供了 async 和 await 的新语法;

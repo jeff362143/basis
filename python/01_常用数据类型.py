@@ -1,11 +1,11 @@
 # https://www.cnblogs.com/Jeff362143/p/15949852.html
 '''
-list使用append,insert,pop
+crud:
+list使用append(附加),insert,pop(取出)
 set使用add和remove
-进行crud
-
-list
 '''
+
+# list
 numList = [1, 2, 3, 4]
 numList.append(5)
 # 1, 2, 3, 4, 5
@@ -17,17 +17,12 @@ numList.pop(0)
 # 1 2 3 4
 print(numList)
 
-'''
-tuple 元祖
-'''
+# tuple 元祖
 numTuple = (0, 1, 2)
 # 元祖不允许子项的指向地址发生改变，即子项为基本类型时值不可变
 # 像打印列表一样打印
 
-'''
-set
-set使用{}定义，而不是[]
-'''
+# set使用{}定义，而不是[]
 # 可以将数组转化为set
 numList = [1, 1, 2, 3, 4]
 numSet = set(numList)
