@@ -15,6 +15,7 @@ numList.pop()
 # 0 1 2 3 4
 numList.pop(0)
 # 1 2 3 4
+
 print(numList)
 
 # tuple 元祖

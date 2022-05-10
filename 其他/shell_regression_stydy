@@ -1,0 +1,510 @@
+#!/usr/bin/env sh
+# set -x
+
+tool_ver=0.05
+today=$(date +%m%d)
+user="local"
+passwd="local"
+type="Devfuse"
+cmd_swver="sw_vers"
+cmd_sn="sysconfig read --key SrNm"
+cmd_astro="astro status"
+cmd_nvram="nvram -p"
+cmd_ls="ls /var/tmp"
+# cmd_re-astro="${reset:-}"
+cmd_sysd="sudo sysdiagnose"
+cmd_cpa1="sudo OSDToolbox bootargs -a IOUSBDeviceController-configuration=iBridgeBringup"
+cmd_cpa2="sudo OSDToolbox bootargs -a enable-usb-device"
+cmd_cpr1="sudo OSDToolbox bootargs -r IOUSBDeviceController-configuration=iBridgeBringup"
+cmd_cpr2="sudo OSDToolbox bootargs -r enable-usb-device"
+cmd_astro_r="sudo OSDToolbox bootargs -r astro"
+cmd_reboot="sudo reboot"
+cmd_eraCB="controlbits erase -s fatp"
+device=$(nanocom -s| grep "usbmodem" | awk '{print$5}')
+allocation="$HOME/Desktop/allocation/allocation.csv"
+if [[ ! -s "$allocation" ]]; then
+	mkdir -p "$(dirname $allocation)"
+	touch "$allocation"
+	echo "\033[1m\033[31m经确认没有"${allocation}"存在或文件为空，若需要请将allocation信息填补完成! \033[0m"
+fi
+
+dir_astro1="local@localhost:/FactoryLogs/LogCollector/Astro*/station.astro.txz"
+dir_astro2="local@localhost:/Users/local/Library/Logs/Astro/factory/burnin.astro"
+dir_ERI1="local@localhost:/FactoryLogs/LogCollector/Astro-ERI-BURNIN*/station.astro.txz"
+dir_ERI2="local@localhost:/Users/local/Library/Logs/Astro/eri/*.astro"
+dir_sys="local@localhost:/var/tmp/sysdiagnose_*.tar.gz"
+
+function For_work1()		#$0 是函数或脚本(当前目录下的脚本)，后面的参数是作为$0的参数来执行的
+{
+	local args=$(($#-1))
+	local cmd=("$@")
+	for i in $(seq 1 $args)
+	do
+		# echo \$$i:${cmd[$i]}
+		if [[ $? -eq 0 ]]; then
+			${cmd[0]} "${cmd[$i]}"
+		else
+			clear
+			echo "\033[1m\033[31m前面程序执行出现问题，跳过后续执行，请检查机台是否已经Hang住或线的连接有问题！ \033[0m"
+			break
+		fi
+	done
+}
+
+function For_work2()		#$0是函数或脚本(当前目录下的脚本)，后面的参数是作为$0的参数来执行的，其中最后一个参数固定作为$0的第二个参数
+{
+	local args=$(($#-1))
+	local args2=$(($#-2))
+	local cmd=("$@")
+	for i in $(seq 1 $args2)
+	do
+		if [[ $? -eq 0 ]]; then
+			${cmd[0]} "${cmd[$i]}" "${cmd[$args]}"
+		else
+			clear
+			echo "\033[1m\033[31m前面程序执行出现问题，跳过后续执行，请检查机台是否已经Hang住或线的连接有问题！ \033[0m"
+			return 1
+			break
+		fi
+	done
+}
+
+function Send_OScmd()		#support sent CMD to unit or create sysdiagnose log for unit,need define $device first
+{
+	expect << SendCMD
+	set timeout 5
+	spawn nanocom -d ${device}
+	send "\r"
+	expect {
+		"login:" 
+		{
+			send "$user\r"
+			expect "*Password:*"
+			send "$passwd\r"
+			expect "*local@*"
+		}
+		"*local@" 
+	}
+	send "$1\r"
+	expect {
+		"*to cancel.*"
+		{
+			send "\r"
+			expect "%"
+		}
+		"*local@*"
+		{
+			send "echo $1 command run finished\r"
+			sleep 2
+		}
+	}
+	exit
+SendCMD
+}
+
+function Copy_OSlog()
+{
+	if `ps -A | grep -e "tcprelay --portoffset 50000 telnet ssh" | grep -qv "grep"`; then
+		echo "tcprelay is already running!!!"
+	else
+		echo "tcprelay is not run yet, now is to run it"
+		tcprelay --portoffset 50000 telnet ssh &
+		echo 
+	fi
+	expect << logcollector
+	set timeout 60
+	spawn scp -o NoHostAuthenticationForLocalhost=yes -r -P 50022 "$1" "$2"
+	expect "assword:"
+	send "${passwd}\r"
+	expect "~ %"
+	exit
+logcollector
+}
+
+
+
+function Rport_singal()		#$1需为astrostatus文件全路径,
+{
+	if [[ ! -f $1 ]]; then
+		echo "\033[1m\033[31m${1}文件不存在，正在退出！ \033[0m"
+		continue
+	fi
+
+	local file_name dir_unit dir_day file_report file_report_f swver SrNm unit status_result FAIL ERROR bootargs nand memory ethernet fails result test_time config
+	
+	file_name=`basename "$1"`
+	dir_unit=`dirname "$1"`
+	cd $dir_unit
+	dir_day=`dirname $dir_unit`
+	is_sysdiagnose=`if grep -aq "sysdiagnose_" $file_name;then echo "Yes";else echo "No";fi`
+	swver=`grep -a "BuildVersion:" "$file_name" | cut -d: -f2 | tr -d "\015" | tr -d " "`
+	SrNm=`grep -a "SrNm" "$file_name" | tr -d "\015" | awk -F "|" '{{printf"%s",$3}}' | grep -v "^$" | sed 's/^[ \t]*//g' | sed 's/[ \t]*$//g'`
+	unit=${file_name:0:4}
+	if [[ -n $SrNm ]]; then
+		unit_table=`grep -a "$SrNm" "$allocation" | tail -1 | cut -d, -f3`
+		nand=`grep -a "$SrNm" "$allocation" | tail -1 | cut -d, -f7`
+		memory=`grep -a "$SrNm" "$allocation" | tail -1 | cut -d, -f6`
+		ethernet=`grep -a "$SrNm" "$allocation" | tail -1 | cut -d, -f5 | tr -d "\015"`	
+		config=`grep "$SrNm" "$allocation" | tail -1 | cut -d, -f4`
+		config=${config:-$(grep "$SrNm" "$file_report" | head -1 | cut -d, -f4)}
+	fi
+	unit=${unit_table:-$unit}
+	status_result=`awk '/Flow:/,/Darwin\/BSD/' "$file_name" | grep "Status:" | cut -d: -f2 | tr -d " "`
+	FAIL=`awk '/Flow:/,/Darwin\/BSD/' "$file_name" | grep "FAIL:" | cut -d: -f2 | tr -d " " | tr -d "\015"`
+	ERROR=`awk '/Flow:/,/Darwin\/BSD/' "$file_name" | grep "ERROR:" | cut -d: -f2 | tr -d " " | tr -d "\015"`
+	test_time=`grep -a "Elapsed Time" "$file_name" | awk -F ":" '{print$2}' | tr -d " " | tr -d "\015" | sed 's/days,/d/;s/hours,/h/;s/minutes,/m/;s/seconds/s/'`
+	bootargs="`grep -a boot-args $file_name | tr -d "\015" | cut -d" " -f8-`"
+
+
+	fails="`grep -ae "|  FAIL" -ae "|  ERROR" "$file_name" | tr -d "\015" | sed 's/^[ \t]*//g' | sed -e 's/ *$//g'`"
+
+	file_report="$dir_day/report.csv"
+	file_report_f="$dir_day/report_fails.csv"	
+	
+	if [[ -z "$status_result" ]]; then
+			result="PANIC_HANG"
+	elif [[ "$status_result" = "Active" ]]; then
+		result="Testing"
+	elif `echo $fails | grep -q "panic"`; then
+		result="PANIC"
+	elif [[ $FAIL -eq 0 && $ERROR -eq 0 ]]; then
+		result="PASS"
+	else
+		result="FAIL"
+	fi
+
+
+	[[ -n "$fails" ]] && echo "$fails" > $dir_unit/FailItems_tmp
+	if [[ -f "$dir_unit"/FailItems_tmp ]]; then
+	 	cat /dev/null > "$dir_unit"/FailItems
+	 	while read Items; do
+	 		FAILS="$(echo $Items | cut -d "|" -f3 | sed 's/^ //' | sed 's/ $//g')"
+	 		echo "${FAILS}\t|#${unit}" >> "$dir_unit"/FailItems
+	 	done < "$dir_unit"/FailItems_tmp
+	fi 
+	
+	echo "\033[34mUnit#:\t#$unit"
+	echo "Result:\t$result"
+	echo "SrNm:\t$SrNm"
+	echo "Config:\t$config" 
+	echo "TestTime:\t$test_time"
+	echo "Test Bundle:\t$swver"
+	echo "Is_sysdiagnose:\t$is_sysdiagnose"
+	echo "FailItems:\t\"$fails\"\033[0m"
+
+	if [[ "$result" = "FAIL" || "$result" = "PANIC" ]]; then
+		if [[ -n "$config" && $mode != "Regression" ]]; then
+			echo "\033[1m\033[31m"
+			read -p "机台fail,请输入其Config: " config
+		fi
+	fi
+	#将机台结果写入report.csv中
+
+	if $(grep -wq "$SrNm" $file_report); then
+		echo "Already have Record in Report file"
+	else
+		if ! $(grep -wq "Remark" $file_report); then
+			echo "SN,Type,No.,Config,NAND,SoC Memory,Ethernet,Status,Radar,Cycle Time,Remark,Bundle_Version,Bootargs" > $file_report
+			echo "$SrNm","$type","$unit","$config","$nand","$memory","$ethernet","$result",,"$test_time",,"$swver","$bootargs" >> $file_report		
+		else
+			echo "$SrNm","$type","$unit","$config","$nand","$memory","$ethernet","$result",,"$test_time",,"$swver","$bootargs","$is_sysdiagnose","\"$fails\"" >> $file_report_f
+			echo "$SrNm","$type","$unit","$config","$nand","$memory","$ethernet","$result",,"$test_time",,"$swver","$bootargs" >> $file_report		
+		fi
+	fi
+
+	local dir_tmp=$dir_day/$unit\|$result\|$SrNm
+	# mv $file_result $dir_unit/$unit_astrostatus.txt
+	echo $dir_unit/${unit}_astrostatus.txt
+	mv $dir_unit $dir_day/$unit
+	dir_unit=$dir_day/$unit
+
+	if `ls $dir_day | grep -q "$unit|$result"` ; then
+		dir_old=$dir_day/Old
+		mkdir -p $dir_old
+		local Num=$(ls $dir_old | grep "$unit|$result" | wc -l | tr -d " " )
+		mv $dir_tmp ${dir_old}/$(basename $dir_tmp)_$Num
+		mv $dir_unit $dir_tmp
+	else
+		mv $dir_unit $dir_tmp
+		dir_unit=$dir_tmp
+	fi
+	file_result="$dir_unit/$file_name"
+	echo "Astrostatus文件路径:"$file_result"  \033[0m"
+	echo $config
+	unset config
+}
+
+function Report_result()
+{
+	if [[ -d $1 ]]; then
+		for RL in $(ls $1/*/*.txt); do
+			Rport_singal $RL
+		done
+	elif [[ -f $1 ]]; then
+		Rport_singal $1
+	else
+		echo "输入不合法，文件不存在！"
+	fi
+}
+
+function Radar()	# 1 args, it's log directory, format is $dir_unit/$dir_unit/$files we need $dir_unit
+{
+	local logdir=$1
+	# echo $logdir
+	local bundle_image
+	local OSD
+	local EFI_root1
+	local EFI_root2
+	local buildstage
+	local type
+	local test_type
+	read -p "请输入测试所使用的OVL的名字:" bundle_image
+	read -p "请输入所使用的OSD root:" OSD
+	OSD=${OSD:-"/"}
+	read -p "请输入所使用的EFI root1:" EFI_root1
+	EFI_root1=${EFI_root1:-/}
+	if [[ -n $EFI_root1 && $EFI_root1 != "/" ]]; then
+		read -p "请输入所使用的EFI root2:" EFI_root2
+	fi
+	EFI_root2=${EFI_root2:-/}
+	read -p "请输入现在产品处于什么阶段(P1/P2/EVT/DVT/PVT...):" buildstage
+
+	local bundle=$(echo "$bundle_image" | cut -d" " -f2)
+	local project=$(echo "$bundle_image" | cut -d" " -f1 | awk -F "_" '{print$3}' | tr 'a-z' 'A-Z')
+
+	echo "Title,Component,Classification,Reproducible,Description" > $logdir/Radar.csv
+	
+	radar_need=$logdir/radar_need.csv
+	local file_report=$logdir/report.csv
+	if $(echo $logdir | grep -q "Line"); then
+		read -p "现在处于什么build阶段？(Mini/Main):" type
+		test_type="$type Build"
+		grep ",FAIL," $file_report | sort | uniq > $radar_need
+		local Num=$(grep ",FAIL," $radar_need | cat -n | cut -f1 | tail -1 | tr -d " ")
+	elif $(echo $logdir | grep -q "Regression"); then
+		test_type=Regression
+		grep -i "fuse" $file_report | sort | uniq > $radar_need
+		local Num=$(grep -i "fuse" $radar_need | cat -n | cut -f1 | tail -1 | tr -d " ")
+	fi
+	echo "Num:$Num"
+
+	for No in $(seq 1 $Num); do
+				unit=$(tail -${No} $radar_need | head -1 | cut -d, -f3)
+				SrNm=$(tail -${No} $radar_need | head -1 | cut -d, -f1)
+				config=$(tail -${No} $radar_need | head -1 | cut -d, -f4)
+				DiagsVer="/"
+				Bootargs="$(tail -${No} $radar_need | head -1 | cut -d, -f13 | sed 's/enable-usb-device//g;s/IOUSBDeviceController-configuration=iBridgeBringup//g')"
+				
+				if [[ "$(tail -${No} $radar_need | head -1 | cut -d, -f9)" = "FAIL" ]]; then
+					local fail="cat $logdir/FailItems_tmp"
+					local fails="$(echo FAILS:\r"$fail")"
+				fi
+						
+				Title="Unit Radar: ${project} FXLH ${buildstage} Burnin ${test_type} with bundle ${bundle}-${SrNm}"
+				Component="Burnin | $project Triage"
+				Classification="Other Bug"
+				Reproducible="Sometimes"
+				Description="SN:${SrNm}\rUnit:${unit}\rConfig:${config}\rBundle image:${bundle_image}\rOSD root:${OSD}\rEFI root1:${EFI_root1}\rEFI root2:${EFI_root2}\rDiags Version:${DiagsVer}\rBootargs:${Bootargs}\r\r"$fails""
+
+				echo "$Title","$Component","$Classification","$Reproducible",\""$Description"\" >> $logdir/Radar.csv
+				unset fails
+	done
+	# Title,Component,Classification,Reproducible,Description
+}
+
+
+function Menu_E0()
+{
+	echo ""
+	echo "###################"
+	echo "#暂不支持,敬请期待#"
+	echo "###################"
+	exit
+}
+
+# echo "SN,Type,No.,Config,NAND,SoC Memory,Ethernet,Status,Radar,Cycle Time,Remark,Bundle_Version,Is_sysdiagnose,FAILS" > $dir_day/report.csv
+function main0()
+{q
+	clear
+	while :; do
+		echo "现在开始进入Runin_Tool \033[1m\033[31mver:${tool_ver}\033[0m,今日为:\033[1m\033[31m${today} \033[0m"
+		echo "请输入你要操作的类型(mode)"
+		echo "1. Line"
+		echo "2. Regression"
+		echo "3. ERI"
+		echo "q. 退出脚本"
+		local mode0
+		read -p "请输入你的选择: " mode0
+		clear
+		case ${mode0} in
+			1 )
+			local mode="Line"
+			 	;;
+			2 )
+			local mode="Regression"
+				;;
+			3 )
+			local mode="ERI"
+				;;
+			q|Q )
+			exit
+				;;
+			* )
+			echo "你的输入$mode0 无效请重新输入"
+			continue
+				;;
+		esac
+
+		local dir_day="$HOME/Desktop/$mode/$(date +%m%d)"
+		while :; do
+			echo "你现在处于的模式是:$mode"
+			echo "\t输入\033[34m\033[1munit号\033[0m\t查看机台结果"
+			echo "\t输入\033[34m\033[1ms\033[0m或\033[34m\033[1mS\033[0m\t\033[32m生成 sysdiagnose\033[0m"
+			echo "\t输入\033[34m\033[1ma\033[0m或\033[34m\033[1mA\033[0m\t\033[33m加参数并重启\033[0m"
+			echo "\t输入\033[34m\033[1mcp\033[0m或\033[34m\033[1mCP\033[0m\t从机台拷贝Log"
+			echo "\t输入\033[34m\033[1m\033[34m\033[1me\033[0m或\033[34m\033[1mE\033[0m\t\033[34m清CB\033[0m"
+			echo "\t输入\033[34m\033[1m\033[34m\033[1md\033[0m或\033[34m\033[1mD\033[0m\t\033[35m删除unit#${unit}的Log\033[0m"
+			echo "\t输入\033[34m\033[1mr\033[0m或\033[34m\033[1mR\033[0m\t\033[36mRadar数据整理/并查看\033[0m"
+			echo "\t输入\033[34m\033[1mc\033[0m或\033[34m\033[1mC\033[0m\t\033[32m查看汇总数据\033[0m"
+			echo "\t输入\033[34m\033[1mb\033[0m或\033[34m\033[1mB\033[0m\t\033[31m返回上一级菜单\033[0m"
+			echo "\t输入\033[34m\033[1mq\033[0m或\033[34m\033[1mQ\033[0m\t\033[31m退出脚本\033[0m"
+
+			read -p "请输入你的选择或unit号(不要以0开头): " unit0	
+
+			case "$unit0" in
+				[1-9]* )
+					local unit=$(printf "%04d" ${unit0})
+					local dir_unit=$dir_day/${unit}
+					mkdir -p ${dir_unit}
+					ls $dir_unit
+					local file_result=${dir_unit}/${unit}_astrostatus.txt
+					For_work1 "Send_OScmd" "$cmd_sn" "$cmd_swver" "$cmd_nvram" "$cmd_astro" "$cmd_ls" | tee $file_result
+					echo "unit:${unit}的结果如下\r@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+					Report_result "$file_result"
+					;;
+				d|D )
+					clear
+					echo "\033[1mUnit List:\033[0m"
+					echo "******************************************"
+					ls $dir_day
+					echo "******************************************"
+					read -p "请输入你要删除的unit号(不要以0开头):" unit1
+					local unit=$(printf "%04d" ${unit1})
+					if [[ -n $unit ]]; then				
+						local dir_del=$dir_day/${unit}*
+						rm -r $dir_del
+						[ $? -eq 0 ] && echo "888888888888888888888888888" && echo "\033[1m\033[32m成功删除${dir_del}! \033[0m" && echo "888888888888888888888888888"
+						[ $? -ne 0 ] && echo "888888888888888888888888888" && echo "\033[1m\033[31m无可删除的log! \033[0m" && echo "888888888888888888888888888"
+						unset unit
+						continue
+					fi		
+					;;
+				s|S )
+					Send_OScmd "$cmd_sysd"
+					[ $? -eq 0 ] && echo "\033[1m\033[32m正在生成sysdiagnose... \033[0m" || echo "\033[1m\033[31m操作出现问题，请进行检查或重新进行此操作！ \033[0m"
+					;;
+				r|R )
+					clear
+					Radar "$dir_day"
+					local file_radar="$dir_day/Radar.csv"
+					[ -f "$file_radar" ] && ( read -p "输入任意值并按回车打开生成的radar文件" radar ; [ -n "$radar" ] && open "$file_radar" || echo "radar文件位置:${file_radar}") || echo "\033[1m\033[31m请先收集Log！ \033[0m"
+					;;
+				a|A )
+					For_work1 "Send_OScmd" "$cmd_cpa1" "$cmd_cpa2" "$cmd_reboot"
+					# [ $? -eq 0 ] && echo "\033[1m\033[32m已成功添加boot-args并正在重启...\033[0m" || echo "\033[1m\033[31m操作出现问题，请进行检查或重新进行此操作！ \033[0m"
+					;;
+				cp|CP )
+					read -p "请输入要拷贝Log的unit号:" unit2
+					unit2=$(printf "%04d" ${unit2})
+					dir_cp=$dir_day/$(ls $dir_day | grep "$unit2")
+					[ -d "$dir_cp" ] || dir_cp=$dir_day/$unit2
+					mkdir -p $dir_cp
+					For_work2 "Copy_OSlog" "$dir_astro1" "$dir_sys" "$dir_cp"
+					[ $? -eq 0 ] && echo "\033[32m\033[1mLog已成功拷贝出来，路径${dir_cp} \033[0m" || echo "\033[31m\033[1m操作失败，请检查！ \033[0m"
+					;;
+				e|E )
+					Send_OScmd "$cmd_eraCB"
+					[ $? -eq 0 ] && echo "\033[1m\033[32m已经成功清除CB！ \033[0m" || ( clear; echo "\033[1m\033[31m操作出现问题，请进行检查或重新进行此操作！ \033[0m" )
+					;;
+				b|B )
+					clear
+					echo "正在返回上一层菜单..."
+					break
+					;;
+				c|C )
+					clear
+					echo "正在打开$dir_day/report_fails.csv \033[31m"
+					cat $dir_day/*/FailItems | sort | tee $dir_day/FAIL_all
+					open $dir_day/report_fails.csv
+					[ $? -eq 0 ] && echo "\033[1m\033[32m成功打开文件！ \033[0m" || echo "\033[1m\033[31m文件无法打开，请检查！ \033[0m"
+					;;
+				q|Q )
+				exit
+					;;
+				* )
+					clear
+					echo "\033[1m\033[31m你的输入不合法，请重新输入！ \033[0m"
+					continue
+					;;
+			esac
+		done
+	done
+}
+
+
+function main(){
+	while true; do
+		clear
+		echo "（1）收取线上incomplete机台的测试log"
+		echo "（2）收取线上跑完ERI机台的测试log"
+		echo "（3）收取线上跑ERI出现异常时候机台的测试log"
+		read -p "请输入你的选择：" which_log
+		dir_cp="$HOME/Desktop/PVT_LOG/$(date +%m%d)/${unit}"
+		mkdir -p $dir_cp
+		case $which_log in
+			1 )
+			read -p "请输入机台的unit号以作为文件夹保存Log:" unit
+			dir_cp="$HOME/Desktop/PVT_LOG/$(date +%m%d)/${unit}"
+			mkdir -p $dir_cp
+			For_work2 "Send_OScmd" "$cmd_cpa1" "$cmd_cpa2" "$cmd_astro_r" "$cmd_reboot" " "
+			sleep 50
+			[ $? -eq 0 ] && For_work2 "Copy_OSlog" "$dir_astro2" "$dir_sys" "$dir_cp"  || ( echo "\033[31m出现错误，请重试！ \033[0m"; return 1 )
+			[ $? -eq 0 ] && echo "\033[32mLog已成功拷贝出来，位于${dir_cp}\033[0m" || echo "\033[31m出现错误，请重试！ \033[0m"
+			read -p "按回车键继续！"	;;
+			2 )
+			read -p "请输入机台的unit号以作为文件夹保存Log:" unit
+			dir_cp="$HOME/Desktop/PVT_LOG/$(date +%m%d)/${unit}"
+			mkdir -p $dir_cp
+			For_work2 "Send_OScmd" "$cmd_cpa1" "$cmd_cpa2" "$cmd_astro_r" "$cmd_reboot" " "
+			sleep 50
+			[ $? -eq 0 ] && For_work2 "Copy_OSlog" "$dir_ERI1" "$dir_sys" "$dir_cp" || echo "\033[31m出现错误，请重试！ \033[0m"
+			[ $? -eq 0 ] && echo "\033[32mLog已成功拷贝出来，位于${dir_cp}\033[0m" || ( echo "\033[31m出现错误，请重试！ \033[0m"; return 1 )
+			read -p "按回车键继续！"	;;
+			3 )
+			read -p "请输入机台的unit号以作为文件夹保存Log:" unit
+			dir_cp="$HOME/Desktop/PVT_LOG/$(date +%m%d)/${unit}"
+			mkdir -p $dir_cp
+			For_work2 "Send_OScmd" "$cmd_cpa1" "$cmd_cpa2" "$cmd_astro_r" "$cmd_reboot" " "
+			sleep 50
+			[ $? -eq 0 ] && For_work2 "Copy_OSlog" "$dir_ERI2" "$dir_sys" "$dir_cp" || echo "\033[31m出现错误，请重试！ \033[0m"
+			[ $? -eq 0 ] && echo "\033[32mLog已成功拷贝出来，位于${dir_cp}\033[0m" || ( echo "\033[31m出现错误，请重试！ \033[0m"; return 1 )
+			read -p "按回车键继续！"	;;
+			* )
+			echo "\033[31m你的输入有误请重新输入\033[0m"
+			read -p "按回车键继续！"	;;
+		esac
+	done
+}
+
+main
+
+
+
+
+
+
+
+
+
+
+

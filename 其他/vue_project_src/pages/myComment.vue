@@ -1,0 +1,36 @@
+<template>
+  <div>
+            <h3 class="title">我的评论  共 <span style="color:red">{{$store.state.blogComments.length}}</span> 条</h3>
+          <div class="blog"  v-for="value in $store.state.blogComments">
+             <router-link :to="{path:'/blogContentDetail',query:{blogId:value.id,blogAuthor:value.username}}" style="text-decoration:none"> <span style="border:1px solid gray;font-size:12px;color:gray">COMMENTS</span> <span style="color:rgb(78, 74, 74)">{{value.comment}}</span> </router-link>
+          </div>
+  </div>
+</template>
+
+<script>
+import { mapActions } from 'vuex'
+export default {
+  data () {
+    return {
+       username: localStorage.getItem("username"),
+    }
+  },
+  methods:{
+    ...mapActions(['getUserComment'])
+  },
+  created() {
+    this.getUserComment({"action":"getUserComments","username": this.username});
+  }
+}
+</script>
+<style scoped>
+.title{
+    color: rgb(95, 93, 93);
+}
+.blog{
+    width: 700px;
+    height: 40px;
+    margin-top:25px;
+    border-bottom: 1px solid rgb(223, 217, 217);
+}
+</style>
