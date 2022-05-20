@@ -6,7 +6,7 @@ doctest可以用来测试执行注释中的代码
 
 # 下面注释测试没生效。。。
 def abs(num):
-    return num if num > 0 else (-num)   # 写法真多..
+    return num if num > 0 else (-num)   # python各种写法真多..
     '''
     >>> abs(5)
     51 

@@ -1,4 +1,4 @@
-# mac shell下使用  man 指令  可以轻易获取指令详细信息。可惜是全英文的
+# mac shell下使用  man 指令  可以轻易获取指令详细信息。是全英文的
 
 cat:
 cat -n fileName 由1开始对所有输出行数编号
@@ -6,7 +6,7 @@ cat -b fileName 与-n情况相似，不会对空白行进行编号
 cat -n index.sh > index2.txt    # 将index.sh的内容加上行号输入到index2.txt中
 
 cd:
-cd ~意味着回到home directory
+cd ~意味着回到用户页
 
 chmod:下面为简单使用
 linux/unix把档案存取分为:拥有者、群组和其他三类。a代表这三类。
@@ -22,8 +22,8 @@ chown: ？
 改变文件归属,只有管理管理者(root)可使用。
 
 cut
-显示每行开始从num1-num2的文字
-echo 'helloworld' | cut -c1-6
+截取每行的文本内容
+echo 'helloworld\nhellovoid' | cut -c1-6
 
 find:?
 可以指定文件的大小，最近更新时间等因素

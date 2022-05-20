@@ -15,7 +15,6 @@ numList.pop()
 # 0 1 2 3 4
 numList.pop(0)
 # 1 2 3 4
-
 print(numList)
 
 # tuple 元祖
@@ -32,21 +31,15 @@ print(numSet)
 numList = list(numSet)
 print(numList)
 
-# 直接定义set
+# 定义set
 numSet = {1, 1, 2, 2, 3, 4}
 print(numSet)
-
-
 numSet.add(5)
 print(numSet)
 numSet.remove(1)
 print(numSet)
 
-
-
-'''
-dictory 字典
-'''
+# dictory 字典
 dict = {
     'name': 'f',
     'desc': 'looking'
@@ -55,12 +48,12 @@ dict = {
 print(dict.get('name'), dict['name'], sep="         ")
 # 遍历，新增和删除字典项
 dict['id'] = '001'
-print(dict)
-# 遍历字典的key和value两项时需要使用items()方法。只遍历一项可以不使用该方法，直接指明字典变量即可
+# 遍历字典key和value两项子项时需要使用items()方法。只遍历一项可以不使用该方法，直接使用字典变量即可
 for key, value in dict.items():
     print(f'{key}:{value}')
 dict.pop('name')
 print("******分隔符******")
+
 for key, value in dict.items():
     print('{}:{}'.format(key, value))
 

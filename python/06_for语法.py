@@ -1,5 +1,5 @@
 '''
-for循环利用的是range函数，根据函数参数个数决定作用
+for循环利用的是for in和range函数，函数参数个数会决定for循环的具体作用
 '''
 
 for i in range(3):

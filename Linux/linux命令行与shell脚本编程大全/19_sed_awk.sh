@@ -1,3 +1,6 @@
+> sed和grep的区别?
+-sed更多的是起编辑处理文本作用,而grep更多的只是过滤获取文本作用
+
 # macos中称为awk,linux os中称为 gakw
 # sed是一个流编辑器(读取文件内容是按行读取的),语法格式为 sed option script file (script中一般还包括操作的路径和sed关键字)
 

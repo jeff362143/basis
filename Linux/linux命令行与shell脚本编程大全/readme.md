@@ -1,0 +1,3 @@
+该笔记为linux命令行与shell脚本编程大全3的读书笔记。
+
+该书包采用的shell为bash shell，我记录笔记时使用的是苹果笔记本(z-shell)

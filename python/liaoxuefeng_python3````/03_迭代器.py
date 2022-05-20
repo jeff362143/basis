@@ -13,8 +13,9 @@ print(isinstance([], Iterable))
 print(isinstance({}, Iterable))
 print(isinstance('', Iterable))
 print(isinstance(10, Iterable))
-# True True True False
-
+print(isinstance((1, 2), Iterable))
+# True True True False True
+print(list(range(1, 11)))
 # dict，list可以通过iter方法变成生成器，生成器就是迭代器
 print(isinstance(iter([]), Iterator))
 print(isinstance(iter(''), Iterator))
